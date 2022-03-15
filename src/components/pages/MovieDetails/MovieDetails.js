@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Helmet from 'react-helmet';
 import { fetchMovie, removeMovie } from '../../../actions';
 
 import Loading from '../../Loading/Loading';
@@ -71,6 +72,10 @@ class Details extends Component {
     if (this.props.movie) {
       return (
         <>
+          <Helmet>
+            <title>{this.props.movie.title}</title>
+            <meta name="description" content={this.props.movie.overview} />
+          </Helmet>
           <Header title={this.props.movie.title} backdrop={this.props.movie.backdrop} poster={this.props.movie.poster}>
             <HeaderSubTitle>
               <span>

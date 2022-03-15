@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Helmet from 'react-helmet';
+
 import { fetchPopularMovies } from '../../../actions';
 import { List, ListHeader } from '../../List/Lists';
 import MovieListItem from '../../List/MovieListItem';
@@ -18,6 +20,9 @@ class MostPopularMovies extends Component {
   render() {
     return (
       <section className="section">
+        <Helmet>
+          <title>Most Popular Movies</title>
+        </Helmet>
         <List>
           <ListHeader>Most Popular Movies</ListHeader>
           {this.props.popularMovies ? this.renderContent() : <Loading />}

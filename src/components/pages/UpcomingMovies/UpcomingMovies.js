@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Helmet from 'react-helmet';
 import { fetchUpcomingMovies } from '../../../actions';
 import { List, ListHeader } from '../../List/Lists';
 import MovieListItem from '../../List/MovieListItem';
@@ -18,6 +19,9 @@ class UpcomingMovies extends Component {
   render() {
     return (
       <section className="section upcoming-list">
+        <Helmet>
+          <title>Upcoming Movies</title>
+        </Helmet>
         <List>
           <ListHeader>Upcoming Movies</ListHeader>
           {this.props.upcomingMovies ? this.renderContent() : <Loading />}

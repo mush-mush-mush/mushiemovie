@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Helmet from 'react-helmet';
 import { fetchTV, removeTV } from '../../../actions';
 
 import Loading from '../../Loading/Loading';
@@ -70,6 +71,10 @@ class TVDetails extends Component {
     if (this.props.tv) {
       return (
         <>
+          <Helmet>
+            <title>{this.props.tv.title}</title>
+            <meta name="description" content={this.props.tv.overview} />
+          </Helmet>
           <Header title={this.props.tv.title} backdrop={this.props.tv.backdrop} poster={this.props.tv.poster}>
             <HeaderSubTitle>
               <span>

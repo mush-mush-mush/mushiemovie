@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Helmet from 'react-helmet';
+
 import { fetchPerson, removePerson } from '../../../actions';
 
 import { Card, CardImage, CardBody, CardTitle, CardText, Cards } from '../../Card/Cards';
@@ -46,6 +48,10 @@ class PersonDetails extends Component {
     if (this.props.person) {
       return (
         <>
+          <Helmet>
+            <title>{this.props.person.name}</title>
+            <meta name="description" content={this.props.person.biography} />
+          </Helmet>
           <Header title={this.props.person.name} backdrop={this.props.person.backdrop} poster={this.props.person.poster}>
             <SectionList>{Object.entries(this.props.person.overviewData).map(this.renderListItem)}</SectionList>
           </Header>
