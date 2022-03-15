@@ -1,0 +1,105 @@
+@import '../../../sass/variables';
+
+.home-section {
+  display: flex;
+
+  @media only screen and (max-width: $breakpoint-md) {
+    flex-direction: column;
+  }
+
+  &.upcoming {
+    flex-direction: column;
+    padding: 4rem;
+    border-radius: 15px;
+    background: $color-primary;
+    background: $color-gradient;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+    @media only screen and (max-width: $breakpoint-md) {
+      padding: 3rem 1.5rem;
+    }
+  }
+
+  &--title {
+    width: 80%;
+    font-size: 5rem;
+    margin-bottom: 2rem;
+
+    @media only screen and (max-width: $breakpoint-md) {
+      width: 100%;
+      font-size: 3.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .upcoming & {
+      color: $color-white;
+      text-shadow: 0 0 3px rgba($color: $color-primary, $alpha: 1);
+    }
+  }
+
+  & .side-content {
+    flex: 1 0 30%;
+
+    & .content-nav {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+
+      @media only screen and (max-width: $breakpoint-md) {
+        flex-direction: row;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      & .nav-item {
+        color: $color-gray;
+        background-color: $color-white;
+        display: block;
+        width: fit-content;
+        padding: 1rem 1.5rem;
+        margin-bottom: 0.5rem;
+        margin-right: 1rem;
+        border-radius: 30px;
+        border: none;
+        cursor: pointer;
+
+        &.active {
+          color: $color-white;
+          background: $color-gradient;
+        }
+      }
+    }
+  }
+  & .main-content {
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    max-width: 70%;
+    min-height: 42rem;
+    flex-basis: 70%;
+
+    @media only screen and (max-width: $breakpoint-md) {
+      max-width: 100%;
+    }
+
+    & .button-more {
+      display: flex;
+      justify-content: space-between;
+      width: 15rem;
+      margin-left: auto;
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+      color: $color-gray;
+      background-color: $color-white;
+      border: 2px solid $color-gray;
+      border-radius: 30px;
+      transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+      cursor: pointer;
+
+      &:hover {
+        color: $color-primary;
+        border: 2px solid $color-primary;
+      }
+    }
+  }
+}

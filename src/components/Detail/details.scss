@@ -1,0 +1,202 @@
+@import '../../sass/variables';
+
+.details {
+  min-height: 50vh;
+  &-header {
+    & .header-backdrop {
+      position: relative;
+      width: 100%;
+      min-height: 30rem;
+      max-height: 35rem;
+      border-radius: 10px;
+      object-fit: cover;
+      z-index: -1;
+      background-color: $color-gray-light;
+    }
+
+    & .header-body {
+      display: flex;
+      width: 90%;
+      margin: 0 auto;
+
+      @media only screen and (max-width: $breakpoint-md) {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      &__poster {
+        min-width: 20rem;
+        min-height: 30rem;
+        max-height: 40rem;
+        margin-top: -20rem;
+        border-radius: 10px;
+        background-color: $color-gray-light;
+        object-fit: cover;
+
+        @media only screen and (max-width: $breakpoint-md) {
+          width: 20rem;
+        }
+      }
+
+      &__content {
+        flex-basis: 75%;
+        font-size: 1.4rem;
+        line-height: 2.5rem;
+        padding: 2rem;
+
+        @media only screen and (max-width: $breakpoint-md) {
+          text-align: center;
+        }
+
+        & h1 {
+          font-size: 3.6rem;
+          margin-bottom: 2rem;
+
+          @media only screen and (max-width: $breakpoint-md) {
+            font-size: 2.8rem;
+          }
+        }
+
+        &-fact {
+          color: $color-gray;
+          font-size: 1.4rem;
+          line-height: 2rem;
+          margin-bottom: 3rem;
+
+          & span {
+            margin-right: 1.5rem;
+
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+
+          & i {
+            margin-right: 0.5rem;
+          }
+        }
+
+        &-actions {
+          display: flex;
+          align-items: center;
+
+          @media only screen and (max-width: $breakpoint-md) {
+            justify-content: center;
+          }
+
+          & .rating {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: $color-primary;
+            border-right: 1px solid $color-gray;
+            padding-right: 2.5rem;
+            margin-right: 2.5rem;
+
+            & i {
+              font-size: 2rem;
+              margin-right: 1rem;
+            }
+
+            &-details {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+
+              &__average {
+                font-size: 3.6rem;
+                font-weight: 700;
+              }
+
+              &__count {
+                font-size: 1.2rem;
+                color: $color-gray;
+              }
+            }
+          }
+
+          & .button-trailer {
+            padding: 1rem 3rem;
+            border-radius: 30px;
+            border: 2px solid $color-gray;
+            color: $color-gray;
+            cursor: pointer;
+            transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+            &:hover {
+              border: 2px solid $color-primary;
+              background-color: $color-white;
+              color: $color-primary;
+            }
+
+            & i {
+              margin-right: 1.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-main {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 10rem;
+
+    @media only screen and (max-width: $breakpoint-md) {
+      width: 100%;
+    }
+
+    & .section-title {
+      font-size: 2.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    & p {
+      font-size: 1.4rem;
+      line-height: 1.8rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &-overview {
+    & > p {
+      margin-bottom: 2rem;
+    }
+
+    &__credits {
+      & strong {
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  & .button-more {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    color: $color-gray;
+    background-color: $color-white;
+    border: 2px solid $color-gray;
+    border-radius: 30px;
+    transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    cursor: pointer;
+
+    &:hover {
+      color: $color-primary;
+      border: 2px solid $color-primary;
+    }
+  }
+
+  &-metadata {
+    & strong {
+      margin-right: 1rem;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+$breakpoint-xs: 384px;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
+$color-primary: #b243f7;
+$color-secondary: #7b3ce3;
+$color-tertiary: #4447e2;
+$color-black: #000000;
+$color-gray: #7a7a7a;
+$color-gray-light: #f2f2f2;
+$color-white: #ffffff;
+
+$color-gradient: linear-gradient(
+  45deg,
+  rgba(
+      $color: $color-primary,
+      $alpha: 1,
+    )
+    0%,
+  rgba(
+      $color: $color-secondary,
+      $alpha: 1,
+    )
+    100%
+);

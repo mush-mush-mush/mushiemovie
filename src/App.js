@@ -1,25 +1,58 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { fetchTopRatedMovies, fetchUpcomingMovies } from './actions';
+import './sass/main.scss';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
+import Home from './components/pages/Home/Home';
+import MovieDetails from './components/pages/MovieDetails/MovieDetails';
+import Credits from './components/pages/Credits/Credits';
+import MostPopularMovies from './components/pages/MostPopularMovies/MostPopularMovies';
+import PersonDetails from './components/pages/PersonDetails/PersonDetails';
+import TopRatedMovies from './components/pages/TopRatedMovies/TopRatedMovies';
+import UpcomingMovies from './components/pages/UpcomingMovies/UpcomingMovies';
+import MostPopularTV from './components/pages/MostPopularTV/MostPopularTV';
+import TopRatedTV from './components/pages/TopRatedTV/TopRatedTV';
+import TVDetails from './components/pages/TVDetails/TVDetails';
+
+class App extends React.Component {
+  _isMounted = false;
+
+  componentDidMount() {
+    this._isMounted = true;
+
+    if (this._isMounted) {
+      this.props.fetchTopRatedMovies();
+      this.props.fetchUpcomingMovies();
+    }
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
+  }
+
+  render() {
+    return (
+      <BrowserRouter>
+        <Navbar />
+        <div className="container content">
+          <Route path="/" exact component={Home}></Route>
+          <Route path="/movie/detail/:id" exact component={MovieDetails}></Route>
+          <Route path="/movie/popular" exact component={MostPopularMovies}></Route>
+          <Route path="/movie/top" exact component={TopRatedMovies}></Route>
+          <Route path="/movie/upcoming" exact component={UpcomingMovies}></Route>
+          <Route path="/:category/credits/:id" exact component={Credits}></Route>
+          <Route path="/tv/popular" exact component={MostPopularTV}></Route>
+          <Route path="/tv/top" exact component={TopRatedTV}></Route>
+          <Route path="/tv/detail/:id" exact component={TVDetails}></Route>
+          <Route path="/person/detail/:id" exact component={PersonDetails}></Route>
+          <Footer />
+        </div>
+      </BrowserRouter>
+    );
+  }
 }
 
-export default App;
+export default connect(null, { fetchTopRatedMovies, fetchUpcomingMovies })(App);

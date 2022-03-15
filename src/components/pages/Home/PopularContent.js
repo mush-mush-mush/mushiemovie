@@ -1,0 +1,88 @@
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchPopularMovies, fetchPopularTV } from '../../../actions';
+import { Link } from 'react-router-dom';
+import { Card, CardImage, CardBody, CardTitle, CardFooter, MovieRating, MovieDate, Cards } from '../../Card/Cards';
+import Loading from '../../Loading/Loading';
+
+class PopularContent extends Component {
+  state = {
+    mostPopular: 'movie',
+  };
+
+  togglePopularContent = (content) => {
+    this.setState({
+      mostPopular: content,
+    });
+  };
+
+  renderCards(movies) {
+    return (
+      <Cards>
+        {movies.map((movie) => (
+          <Card link={`/${movie.category}/detail/${movie.id}`} key={movie.id}>
+            <CardImage src={movie.poster} alt={movie.title} />
+            <CardBody>
+              <CardTitle>{movie.title.length > 25 ? movie.title.slice(0, 25) + '...' : movie.title}</CardTitle>
+            </CardBody>
+            <CardFooter>
+              <MovieRating rating={movie.rating} />
+              <MovieDate date={movie.releaseDate} />
+            </CardFooter>
+          </Card>
+        ))}
+      </Cards>
+    );
+  }
+
+  renderContent() {
+    if (this.props.popularTV && this.props.popularMovies) {
+      return (
+        <>
+          <div className={`${this.state.mostPopular === 'tv' && 'hidden'}`}>{this.renderCards(this.props.popularMovies.slice(0, 10))}</div>
+          <div className={`${this.state.mostPopular === 'movie' && 'hidden'}`}>{this.renderCards(this.props.popularTV.slice(0, 10))}</div>
+        </>
+      );
+    } else {
+      return <Loading></Loading>;
+    }
+  }
+
+  componentDidMount() {
+    this.props.fetchPopularMovies();
+    this.props.fetchPopularTV();
+  }
+
+  render() {
+    return (
+      <section className="home-section section">
+        <aside className="side-content">
+          <h2 className="home-section--title">Most Popular</h2>
+          <nav className="content-nav">
+            <button className={`nav-item ${this.state.mostPopular === 'movie' && 'active'}`} onClick={() => this.togglePopularContent('movie')}>
+              Movies
+            </button>
+            <button className={`nav-item ${this.state.mostPopular === 'tv' && 'active'}`} onClick={() => this.togglePopularContent('tv')}>
+              TV Shows
+            </button>
+          </nav>
+        </aside>
+        <div className="main-content">
+          {this.renderContent()}
+          <Link className="button-more" to={`/${this.state.mostPopular}/popular`}>
+            See More <i className="fas fa-arrow-right"></i>
+          </Link>
+        </div>
+      </section>
+    );
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    popularMovies: state.movies.popularMovies,
+    popularTV: state.tv.popularTV,
+  };
+};
+
+export default connect(mapStateToProps, { fetchPopularMovies, fetchPopularTV })(PopularContent);
