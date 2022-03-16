@@ -1,11 +1,13 @@
 /* eslint-disable import/no-anonymous-default-export */
 
 export default (person) => {
+  const personCredits = person.credits.cast.sort((a, b) => b.popularity - a.popularity);
+
   return {
     id: person.id,
     name: person.name,
     poster: person.profile_path,
-    backdrop: null,
+    backdrop: personCredits[0].backdrop_path,
     overviewData: {
       known_for: person.known_for_department,
       gender: person.gender === 2 ? 'Male' : 'Female',
@@ -15,6 +17,6 @@ export default (person) => {
       also_known_as: person.also_known_as,
     },
     biography: person.biography,
-    credits: person.credits.cast.sort((a, b) => b.popularity - a.popularity),
+    credits: personCredits,
   };
 };
