@@ -1,4 +1,5 @@
 import React from 'react';
+import LazyImage from '../LazyImage/LazyImage';
 
 import './details.scss';
 
@@ -7,16 +8,17 @@ export const Detail = ({ children }) => <div className="details">{children}</div
 export const DetailHeader = ({ children }) => <header className="details-header">{children}</header>;
 
 export const HeaderBackdrop = ({ src, alt }) => {
-  src = src
-    ? `https://image.tmdb.org/t/p/w1280${src}`
-    : 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80';
+  // src = src
+  //   ? `https://image.tmdb.org/t/p/w1280${src}`
+  //   : 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80';
 
-  return <img className="header-backdrop" src={src} alt={alt}></img>;
+  // return <img className="header-backdrop" src={src} alt={alt}></img>;
+  return <LazyImage src={src} alt={alt} imageSize="w1280" thumbSize="w200" className="header-backdrop" />;
 };
 
 export const HeaderContent = ({ children }) => <div className="header-body">{children}</div>;
 
-export const HeaderPoster = ({ src, alt }) => <img className="header-body__poster" src={`https://image.tmdb.org/t/p/w342${src}`} alt={alt}></img>;
+export const HeaderPoster = ({ src, alt }) => <LazyImage src={src} alt={alt} imageSize="w342" thumbSize="w92" className="header-body__poster" />;
 
 export const HeaderBody = ({ children }) => <div className="header-body__content">{children}</div>;
 

@@ -99,10 +99,14 @@ class Details extends Component {
                   <small className="rating-details__count">{this.props.movie.voteCount}</small>
                 </div>
               </div>
-              <a className="button button-trailer" href={`https://www.youtube.com/watch?v=${this.props.movie.trailer}`}>
-                <i className="fas fa-play"></i>
-                Play Trailer
-              </a>
+              {this.props.movie.trailer ? (
+                <a className="button button-trailer" href={`https://www.youtube.com/watch?v=${this.props.movie.trailer}`}>
+                  <i className="fas fa-play"></i>
+                  Play Trailer
+                </a>
+              ) : (
+                <p>Trailer is not available.</p>
+              )}
             </HeaderActions>
           </Header>
           <DetailMain>

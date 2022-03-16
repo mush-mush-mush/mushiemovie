@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Helmet from 'react-helmet';
 import './home.scss';
 
 import Carousel from './Carousel';
@@ -10,6 +11,9 @@ class Home extends Component {
   render() {
     return (
       <>
+        <Helmet>
+          <title>Mushie Movie</title>
+        </Helmet>
         <Carousel />
         <PopularContent />
         <TopRatedContent />

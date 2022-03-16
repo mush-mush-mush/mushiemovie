@@ -7,3 +7,14 @@
 .remove-scrollbar {
   overflow: hidden;
 }
+
+.lazy-img {
+  filter: blur(0);
+  -webkit-filter: blur(0);
+  transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  &--loading {
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+  }
+}

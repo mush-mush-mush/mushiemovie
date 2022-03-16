@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import LazyImage from '../LazyImage/LazyImage';
 
 import './cards.scss';
 
@@ -49,8 +50,6 @@ export const Cards = ({ children }) => {
   );
 };
 
-// export const CardContainer = ({ children }) => <div className={`cards-container`}>{children}</div>;
-
 export const Card = ({ children, link }) => {
   return (
     <Link className={`card`} to={link}>
@@ -60,9 +59,7 @@ export const Card = ({ children, link }) => {
 };
 
 export const CardImage = ({ src, alt }) => {
-  const imgSrc = src ? `https://image.tmdb.org/t/p/w185${src}` : 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=';
-
-  return <img className={`card-img`} src={imgSrc} alt={alt}></img>;
+  return <LazyImage src={src} alt={alt} imageSize={'w185'} thumbSize={'w92'} className={'card-img'} />;
 };
 
 export const CardBody = ({ children }) => {

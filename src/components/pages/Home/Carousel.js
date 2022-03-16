@@ -5,6 +5,7 @@ import { fetchTrendingMovies } from '../../../actions';
 import Loading from '../../Loading/Loading';
 
 import './carousel.scss';
+import LazyImage from '../../LazyImage/LazyImage';
 
 class Carousel extends Component {
   state = {
@@ -59,7 +60,7 @@ class Carousel extends Component {
       tabIndex="-1"
       style={{ transform: `translateX(${(index - this.state.activeCarouselItem) * 100}%` }}
     >
-      <img className="carousel-main__img" src={`https://image.tmdb.org/t/p/w1280${item.backdrop_path}`} alt=""></img>
+      <LazyImage src={item.backdrop_path} alt={item.title} imageSize={'w1280'} thumbSize={'w200'} className={'carousel-main__img'} />
       <div className="carousel-main__details">
         <strong>Trending</strong>
         <h2>{item.title}</h2>
@@ -87,7 +88,7 @@ class Carousel extends Component {
       onKeyDown={(e) => (e.code === 'Space' || e.code === 'Enter') && this.clickItem()}
       tabIndex="0"
     >
-      <img className="carousel-item__img" src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={item.title} />
+      <img className="carousel-item__img" src={`https://image.tmdb.org/t/p/w92${item.poster_path}`} alt={item.title} />
       <span className="carousel-item__title">{item.title}</span>
       <div className="carousel-item__background" />
     </div>
