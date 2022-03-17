@@ -16,6 +16,8 @@ class PersonDetails extends Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.id !== this.props.match.params.id) {
+      this.props.removePerson();
+      window.scrollTo(0, 0);
       this.props.fetchPerson(this.props.match.params.id);
     }
   }
@@ -44,7 +46,6 @@ class PersonDetails extends Component {
   );
 
   renderContent = () => {
-    console.log(this.props.person);
     if (this.props.person) {
       return (
         <>

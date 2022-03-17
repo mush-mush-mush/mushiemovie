@@ -33,7 +33,6 @@ class UpcomingContent extends Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <section className="home-section section upcoming">
         <h2 className="home-section--title">Now Playing</h2>

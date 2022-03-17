@@ -27,6 +27,7 @@ class Details extends Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.id !== this.props.match.params.id) {
+      this.props.removeMovie();
       window.scrollTo(0, 0);
       this.props.fetchMovie(this.props.match.params.id);
     }
