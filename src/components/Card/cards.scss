@@ -50,6 +50,10 @@
       opacity: 1;
     }
 
+    @media only screen and (max-width: $breakpoint-md) {
+      display: none;
+    }
+
     &--left {
       left: 1rem;
     }
