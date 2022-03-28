@@ -127,8 +127,8 @@ class Carousel extends Component {
     >
       <LazyImage src={item.backdrop_path} alt={item.title} imageSize={'w1280'} thumbSize={'w200'} className={'carousel-main__img'} />
       <div className="carousel-main__details">
-        <strong>Trending</strong>
-        <h2>{item.title}</h2>
+        <span className="details__category">Trending</span>
+        <h2 className="details_title">{item.title}</h2>
         <div className="summary">
           <div className="rating">
             <i className="fas fa-star"></i>

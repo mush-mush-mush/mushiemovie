@@ -71,11 +71,17 @@
         padding: 2rem;
       }
 
-      & strong {
-        font-size: 1.6rem;
-        color: $color-primary;
-        display: block;
+      & .details__category {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: $color-white;
+        background-color: $color-primary;
+        display: inline-block;
         margin-bottom: 0.75rem;
+        padding: 1rem;
+        border-radius: 50px;
+        text-shadow: none;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
       }
 
       & h2 {
