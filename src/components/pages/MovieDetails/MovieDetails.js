@@ -43,7 +43,7 @@ class Details extends Component {
     const label = (key.charAt(0).toUpperCase() + key.slice(1)).replace(/_/g, ' ');
     const newValue = Array.isArray(value) ? value.join(', ') : value;
 
-    return <SectionListItem label={label} value={newValue} />;
+    return <SectionListItem label={label} value={newValue} key={label} />;
   };
 
   renderTopCasts = (person) => (
@@ -101,7 +101,12 @@ class Details extends Component {
                 </div>
               </div>
               {this.props.movie.trailer ? (
-                <a className="button button-trailer" href={`https://www.youtube.com/watch?v=${this.props.movie.trailer}`}>
+                <a
+                  className="button button-trailer"
+                  href={`https://www.youtube.com/watch?v=${this.props.movie.trailer}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <i className="fas fa-play"></i>
                   Play Trailer
                 </a>
