@@ -11,6 +11,7 @@
   padding: 5px 5px 2rem 5px;
   overflow: auto;
   position: relative;
+  scrollbar-color: $color-tertiary $color-gray-light;
 
   &::-webkit-scrollbar {
     height: 1rem;

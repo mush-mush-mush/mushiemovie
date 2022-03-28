@@ -2,16 +2,22 @@
 
 .details {
   min-height: 50vh;
+
   &-header {
     & .header-backdrop {
       position: relative;
       width: 100%;
-      min-height: 30rem;
-      max-height: 35rem;
+      min-height: 62rem;
+      max-height: 62rem;
       border-radius: 10px;
       object-fit: cover;
       z-index: -1;
       background-color: $color-gray-light;
+
+      @media only screen and (max-width: $breakpoint-md) {
+        min-height: 30rem;
+        max-height: 30rem;
+      }
     }
 
     & .header-body {
