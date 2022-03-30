@@ -1,11 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useRef } from 'react';
+import noImage from './noimage.png';
 
 function LazyImage({ src, alt, thumbSize, imageSize, className }) {
   const imageRef = useRef();
 
   const catSrc = (src, size) => {
-    if (!src) return 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=';
+    if (!src) {
+      return 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=';
+    }
 
     return `https://image.tmdb.org/t/p/${size}${src}`;
   };
@@ -16,9 +19,14 @@ function LazyImage({ src, alt, thumbSize, imageSize, className }) {
 
       if (!entry.isIntersecting) return false;
 
-      entry.target.src = catSrc(src, imageSize);
+      if (src) {
+        entry.target.src = catSrc(src, imageSize);
+      } else {
+        entry.target.src = noImage;
+      }
 
       entry.target.addEventListener('load', () => {
+        console.log('load: ', src);
         entry.target.classList.remove('lazy-img--loading');
       });
     };

@@ -7,7 +7,7 @@ export default (person) => {
     id: person.id,
     name: person.name,
     poster: person.profile_path,
-    backdrop: personCredits[0].backdrop_path,
+    backdrop: personCredits[0]?.backdrop_path,
     overviewData: {
       known_for: person.known_for_department,
       gender: person.gender === 2 ? 'Male' : 'Female',
@@ -16,7 +16,7 @@ export default (person) => {
       place_of_birth: person.place_of_birth,
       also_known_as: person.also_known_as,
     },
-    biography: person.biography,
+    biography: person.biography || 'Biography not available.',
     credits: personCredits,
   };
 };
