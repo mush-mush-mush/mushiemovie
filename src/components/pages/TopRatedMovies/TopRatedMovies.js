@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
-import { fetchTopRatedMovies } from '../../../actions';
 import { List, ListHeader } from '../../List/Lists';
 import MovieListItem from '../../List/MovieListItem';
 import Loading from '../../Loading/Loading';
+import { fetchTopRatedMovies } from '../../../actions/movieActions';
 
 class TopRatedMovies extends Component {
   componentDidMount() {

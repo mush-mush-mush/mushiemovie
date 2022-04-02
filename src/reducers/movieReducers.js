@@ -18,26 +18,27 @@ const INITIAL_STATE = {
   nowPlaying: null,
   movie: null,
   credits: null,
+  error: null,
 };
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case FETCH_TOP_RATED_MOVIES:
-      return { ...state, topRatedMovies: action.payload };
+      return { ...state, topRatedMovies: action.payload, error: action.error };
     case FETCH_TRENDING_MOVIES:
-      return { ...state, trendingMovies: action.payload };
+      return { ...state, trendingMovies: action.payload, error: action.error };
     case FETCH_POPULAR_MOVIES:
-      return { ...state, popularMovies: action.payload };
+      return { ...state, popularMovies: action.payload, error: action.error };
     case FETCH_UPCOMING_MOVIES:
-      return { ...state, upcomingMovies: action.payload };
+      return { ...state, upcomingMovies: action.payload, error: action.error };
     case FETCH_NOW_PLAYING:
-      return { ...state, nowPlaying: action.payload };
+      return { ...state, nowPlaying: action.payload, error: action.error };
     case FETCH_MOVIE:
-      return { ...state, movie: action.payload };
+      return { ...state, movie: action.payload, error: action.error };
     case FETCH_MOVIE_CREDITS:
       return { ...state, credits: action.payload };
     case REMOVE_MOVIE:
-      return { ...state, movie: action.payload };
+      return { ...state, movie: action.payload, error: action.error };
     default:
       return state;
   }

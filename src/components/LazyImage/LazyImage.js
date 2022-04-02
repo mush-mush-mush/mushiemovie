@@ -26,7 +26,11 @@ function LazyImage({ src, alt, thumbSize, imageSize, className }) {
       }
 
       entry.target.addEventListener('load', () => {
-        console.log('load: ', src);
+        entry.target.classList.remove('lazy-img--loading');
+      });
+
+      entry.target.addEventListener('error', () => {
+        entry.target.src = noImage;
         entry.target.classList.remove('lazy-img--loading');
       });
     };

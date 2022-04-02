@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchMovieCredits, fetchTVCredits, fetchPersonCredits } from '../../../actions';
+import { fetchMovieCredits } from '../../../actions/movieActions';
+import { fetchTVCredits } from '../../../actions/tvActions';
+import { fetchPersonCredits } from '../../../actions/personActions';
 import PersonListItem from '../../List/PersonListItem';
 import CreditListItem from '../../List/CreditListItem';
 import Loading from '../../Loading/Loading';

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchTrendingMovies } from '../../../actions';
 import Loading from '../../Loading/Loading';
 
 import './carousel.scss';
 import LazyImage from '../../LazyImage/LazyImage';
+import { fetchTrendingMovies } from '../../../actions/movieActions';
 
 class Carousel extends Component {
   state = {

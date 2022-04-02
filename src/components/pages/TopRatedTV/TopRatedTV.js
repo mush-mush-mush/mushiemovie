@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
-import { fetchTopRatedTV } from '../../../actions';
 import { List, ListHeader } from '../../List/Lists';
 import MovieListItem from '../../List/MovieListItem';
 import Loading from '../../Loading/Loading';
+import { fetchTopRatedTV } from '../../../actions/tvActions';
 
 class MostPopularTV extends Component {
   componentDidMount() {

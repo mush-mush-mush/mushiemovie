@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Helmet from 'react-helmet';
-import { fetchTV, removeTV } from '../../../actions';
 
 import Loading from '../../Loading/Loading';
 import { Cards, Card, CardImage, CardBody, CardTitle, CardText, CardFooter, MovieRating, MovieDate } from '../../Card/Cards';
@@ -18,6 +17,7 @@ import {
   SectionParagraph,
   SectionTitle,
 } from '../../Detail/Detail';
+import { fetchTV, removeTV } from '../../../actions/tvActions';
 
 class TVDetails extends Component {
   componentDidMount() {
@@ -68,7 +68,9 @@ class TVDetails extends Component {
   );
 
   renderContent = () => {
-    if (this.props.tv) {
+    if (this.props.error) {
+      throw this.props.error;
+    } else if (this.props.tv) {
       return (
         <>
           <Helmet>
@@ -139,7 +141,7 @@ class TVDetails extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { tv: state.tv.tv };
+  return { tv: state.tv.tv, error: state.tv.error };
 };
 
 export default connect(mapStateToProps, { fetchTV, removeTV })(TVDetails);

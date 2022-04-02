@@ -6,7 +6,7 @@ import './footer.scss';
 export default class Footer extends Component {
   render() {
     return (
-      <footer className="footer">
+      <footer className="container footer">
         <div className="footer-left">
           <Link className="footer-brand" to="/">
             mushie<span>movie</span>

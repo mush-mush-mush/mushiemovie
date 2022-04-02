@@ -12,7 +12,7 @@ export default class Loading extends Component {
           <div className="loading-icon"></div>
         </div>
 
-        <span>Loading</span>
+        <span>Loading...</span>
       </div>
     );
   }

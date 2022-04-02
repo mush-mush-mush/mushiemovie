@@ -32,7 +32,9 @@
 
     &__index {
       width: 2rem;
-      font-size: 1.6rem;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: $color-gray;
       text-align: center;
       margin-left: 1rem;
     }
@@ -42,6 +44,7 @@
       height: 7.5rem;
       background-color: $color-gray;
       border-radius: 5px;
+      object-fit: cover;
 
       &.large {
         width: 7rem;

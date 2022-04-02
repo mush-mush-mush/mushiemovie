@@ -3,11 +3,10 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Helmet from 'react-helmet';
 
-import { fetchPerson, removePerson } from '../../../actions';
-
 import { Card, CardImage, CardBody, CardTitle, CardText, Cards } from '../../Card/Cards';
 import { Detail, DetailMain, DetailSection, Header, SectionList, SectionListItem, SectionParagraph, SectionTitle } from '../../Detail/Detail';
 import Loading from '../../Loading/Loading';
+import { fetchPerson, removePerson } from '../../../actions/personActions';
 
 class PersonDetails extends Component {
   componentDidMount() {
@@ -46,7 +45,9 @@ class PersonDetails extends Component {
   );
 
   renderContent = () => {
-    if (this.props.person) {
+    if (this.props.error) {
+      throw this.props.error;
+    } else if (this.props.person) {
       return (
         <>
           <Helmet>
@@ -84,6 +85,7 @@ class PersonDetails extends Component {
 const mapStateToProps = (state) => {
   return {
     person: state.persons.person,
+    error: state.persons.error,
   };
 };
 

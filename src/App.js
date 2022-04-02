@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchTopRatedMovies, fetchUpcomingMovies } from './actions';
 import './sass/main.scss';
 
 import Navbar from './components/Navbar/Navbar';
@@ -16,43 +15,32 @@ import UpcomingMovies from './components/pages/UpcomingMovies/UpcomingMovies';
 import MostPopularTV from './components/pages/MostPopularTV/MostPopularTV';
 import TopRatedTV from './components/pages/TopRatedTV/TopRatedTV';
 import TVDetails from './components/pages/TVDetails/TVDetails';
+import ErrorBoundary from './components/ErrorBoundary';
 
 class App extends React.Component {
-  _isMounted = false;
-
-  componentDidMount() {
-    this._isMounted = true;
-
-    if (this._isMounted) {
-      this.props.fetchTopRatedMovies();
-      this.props.fetchUpcomingMovies();
-    }
-  }
-
-  componentWillUnmount() {
-    this._isMounted = false;
-  }
-
   render() {
     return (
       <BrowserRouter>
         <Navbar />
+
         <div className="container content">
-          <Route path="/" exact component={Home}></Route>
-          <Route path="/movie/detail/:id" exact component={MovieDetails}></Route>
-          <Route path="/movie/popular" exact component={MostPopularMovies}></Route>
-          <Route path="/movie/top" exact component={TopRatedMovies}></Route>
-          <Route path="/movie/upcoming" exact component={UpcomingMovies}></Route>
-          <Route path="/:category/credits/:id" exact component={Credits}></Route>
-          <Route path="/tv/popular" exact component={MostPopularTV}></Route>
-          <Route path="/tv/top" exact component={TopRatedTV}></Route>
-          <Route path="/tv/detail/:id" exact component={TVDetails}></Route>
-          <Route path="/person/detail/:id" exact component={PersonDetails}></Route>
-          <Footer />
+          <ErrorBoundary>
+            <Route path="/" exact component={Home}></Route>
+            <Route path="/movie/detail/:id" exact component={MovieDetails}></Route>
+            <Route path="/movie/popular" exact component={MostPopularMovies}></Route>
+            <Route path="/movie/top" exact component={TopRatedMovies}></Route>
+            <Route path="/movie/upcoming" exact component={UpcomingMovies}></Route>
+            <Route path="/:category/credits/:id" exact component={Credits}></Route>
+            <Route path="/tv/popular" exact component={MostPopularTV}></Route>
+            <Route path="/tv/top" exact component={TopRatedTV}></Route>
+            <Route path="/tv/detail/:id" exact component={TVDetails}></Route>
+            <Route path="/person/detail/:id" exact component={PersonDetails}></Route>
+          </ErrorBoundary>
         </div>
+        <Footer />
       </BrowserRouter>
     );
   }
 }
 
-export default connect(null, { fetchTopRatedMovies, fetchUpcomingMovies })(App);
+export default connect(null)(App);

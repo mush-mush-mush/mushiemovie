@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { searchQuery, removeSearchQuery } from '../../actions';
+import { removeSearchQuery, searchQuery } from '../../actions/searchActions';
 import ModalSearch from '../ModalSearch/ModalSearch';
 
 class SearchBar extends Component {

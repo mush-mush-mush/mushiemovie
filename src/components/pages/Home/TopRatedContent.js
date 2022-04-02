@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchTopRatedMovies, fetchTopRatedTV } from '../../../actions';
 import { Link } from 'react-router-dom';
 import Loading from '../../Loading/Loading';
 import MovieListItem from '../../List/MovieListItem';
 import { List } from '../../List/Lists';
+import { fetchTopRatedMovies } from '../../../actions/movieActions';
+import { fetchTopRatedTV } from '../../../actions/tvActions';
 
 class TopRatedContent extends Component {
   state = {

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPopularMovies, fetchPopularTV } from '../../../actions';
 import { Link } from 'react-router-dom';
+import { fetchPopularMovies } from '../../../actions/movieActions';
+import { fetchPopularTV } from '../../../actions/tvActions';
 import { Card, CardImage, CardBody, CardTitle, CardFooter, MovieRating, MovieDate, Cards } from '../../Card/Cards';
 import Loading from '../../Loading/Loading';
 

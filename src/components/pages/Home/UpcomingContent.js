@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchNowPlaying } from '../../../actions';
+import { fetchNowPlaying } from '../../../actions/movieActions';
 import { Card, CardImage, CardBody, CardTitle, CardFooter, MovieRating, MovieDate, Cards } from '../../Card/Cards';
 import Loading from '../../Loading/Loading';
 

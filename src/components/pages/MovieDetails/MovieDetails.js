@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Helmet from 'react-helmet';
-import { fetchMovie, removeMovie } from '../../../actions';
 
 import Loading from '../../Loading/Loading';
 import { Card, CardImage, CardBody, CardTitle, CardText, Cards, CardFooter, MovieRating, MovieDate } from '../../Card/Cards';
@@ -18,23 +17,35 @@ import {
   SectionParagraph,
   SectionTitle,
 } from '../../Detail/Detail';
+import { fetchMovie, removeMovie } from '../../../actions/movieActions';
 
 class Details extends Component {
   componentDidMount() {
-    window.scrollTo(0, 0);
-    this.props.fetchMovie(this.props.match.params.id);
+    this.fetchContent();
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.id !== this.props.match.params.id) {
       this.props.removeMovie();
-      window.scrollTo(0, 0);
-      this.props.fetchMovie(this.props.match.params.id);
+      this.fetchContent();
     }
   }
 
   componentWillUnmount() {
     this.props.removeMovie();
+  }
+
+  componentDidCatch(error) {
+    console.log(error);
+  }
+
+  fetchContent() {
+    window.scrollTo(0, 0);
+    try {
+      this.props.fetchMovie(this.props.match.params.id);
+    } catch (error) {
+      console.log('error');
+    }
   }
 
   renderListItem = ([key, value]) => {
@@ -70,7 +81,9 @@ class Details extends Component {
   );
 
   renderContent = () => {
-    if (this.props.movie) {
+    if (this.props.error) {
+      throw this.props.error;
+    } else if (this.props.movie) {
       return (
         <>
           <Helmet>
@@ -150,7 +163,7 @@ class Details extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { movie: state.movies.movie };
+  return { movie: state.movies.movie, error: state.movies.error };
 };
 
 export default connect(mapStateToProps, { fetchMovie, removeMovie })(Details);

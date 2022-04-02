@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import LazyImage from '../LazyImage/LazyImage';
 
 import './lists.scss';
 
@@ -16,11 +17,7 @@ export const ListItem = ({ children, link }) => (
 export const ItemIndex = ({ children }) => <span className="list-item__index">{children}</span>;
 
 export const ItemImg = ({ src, alt, variant }) => (
-  <img
-    className={`list-item__img ${variant}`}
-    src={src ? `https://image.tmdb.org/t/p/w92${src}` : 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs='}
-    alt={alt}
-  ></img>
+  <LazyImage src={src} alt={alt} imageSize={'w185'} thumbSize={'w92'} className={`list-item__img ${variant}`} />
 );
 
 export const ItemColPrimary = ({ children }) => <div className="list-item__col--primary">{children}</div>;
