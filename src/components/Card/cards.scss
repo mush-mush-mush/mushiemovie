@@ -12,6 +12,7 @@
   overflow: auto;
   position: relative;
   scrollbar-color: $color-tertiary $color-gray-light;
+  scroll-snap-type: x proximity;
 
   &::-webkit-scrollbar {
     height: 1rem;
@@ -78,6 +79,7 @@
   text-decoration: none;
   cursor: pointer;
   transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  scroll-snap-align: start;
 
   @media only screen and (max-width: $breakpoint-md) {
     border-radius: 8px;
