@@ -45,6 +45,7 @@
       background-color: $color-gray;
       border-radius: 5px;
       object-fit: cover;
+      overflow: hidden;
 
       &.large {
         width: 7rem;

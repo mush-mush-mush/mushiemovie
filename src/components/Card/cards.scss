@@ -108,7 +108,6 @@
     background-color: $color-gray-light;
     object-fit: cover;
     transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
-    overflow: hidden;
 
     @media only screen and (max-width: $breakpoint-md) {
       width: 14.5rem;
