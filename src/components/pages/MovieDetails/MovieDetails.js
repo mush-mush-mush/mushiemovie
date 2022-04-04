@@ -89,6 +89,19 @@ class Details extends Component {
           <Helmet>
             <title>{this.props.movie.title}</title>
             <meta name="description" content={this.props.movie.overview} />
+
+            <meta property="og:url" content={`https://cranky-hermann-6ed2a6.netlify.app/movie/detail/${this.props.movie.id}`} />
+            <meta property="og:type" content="website" />
+            <meta property="og:title" content={`${this.props.movie.title} - Mushie Movie`} />
+            <meta property="og:description" content={this.props.movie.overview} />
+            <meta property="og:image" content={`https://image.tmdb.org/t/p/w200${this.props.movie.backdrop}`} />
+
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta property="twitter:domain" content="cranky-hermann-6ed2a6.netlify.app" />
+            <meta property="twitter:url" content={`https://cranky-hermann-6ed2a6.netlify.app/movie/detail/${this.props.movie.id}`} />
+            <meta name="twitter:title" content={`${this.props.movie.title} - Mushie Movie`} />
+            <meta name="twitter:description" content={this.props.movie.overview} />
+            <meta name="twitter:image" content={`https://image.tmdb.org/t/p/w200${this.props.movie.backdrop}`} />
           </Helmet>
           <Header title={this.props.movie.title} backdrop={this.props.movie.backdrop} poster={this.props.movie.poster}>
             <HeaderSubTitle>
