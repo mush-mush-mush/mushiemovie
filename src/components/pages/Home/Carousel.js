@@ -15,6 +15,7 @@ class Carousel extends Component {
     startPos: 0,
     currentTranslate: 0,
     prevTranslate: 0,
+    slideAnimate: false,
   };
 
   componentDidMount() {
@@ -66,6 +67,7 @@ class Carousel extends Component {
       currentIndex: index,
       startPos: this.getPositionX(event),
       isDragging: true,
+      slideAnimate: true,
     });
     clearInterval(this.state.carouselInterval);
   };
@@ -73,12 +75,13 @@ class Carousel extends Component {
   touchEnd = (event) => {
     const movedBy = this.state.currentTranslate - this.state.prevTranslate;
 
-    if (movedBy < -100 && this.state.activeCarouselItem < 4)
+    if (movedBy < -60 && this.state.activeCarouselItem < 4)
       this.setState({ isDragging: false, activeCarouselItem: this.state.activeCarouselItem + 1 });
 
-    if (movedBy > 100 && this.state.activeCarouselItem > 0)
+    if (movedBy > 60 && this.state.activeCarouselItem > 0)
       this.setState({ isDragging: false, activeCarouselItem: this.state.activeCarouselItem - 1 });
 
+    this.setState({ slideAnimate: false });
     this.startCarousel();
   };
 
@@ -101,7 +104,7 @@ class Carousel extends Component {
       to={`/movie/detail/${item.id}`}
       key={item.title}
       tabIndex="-1"
-      style={{ transform: `translateX(${(index - this.state.activeCarouselItem) * 100}%` }}
+      style={{ transform: `translateX(${(index - this.state.activeCarouselItem) * 100}%)` }}
       onTouchStart={this.touchStart(index)}
       onTouchEnd={this.touchEnd}
       onTouchMove={this.touchMove}
@@ -154,7 +157,9 @@ class Carousel extends Component {
   renderContent() {
     return (
       <>
-        <div className="carousel-inner">{this.props.trendingMovies.slice(0, 5).map(this.CarouselSlider)}</div>
+        <div className="carousel-inner" style={{ transform: `scale(${this.state.slideAnimate ? 0.95 : 1})` }}>
+          {this.props.trendingMovies.slice(0, 5).map(this.CarouselSlider)}
+        </div>
         <div className="carousel-list">
           <h2 className="carousel-list__title">Trending Now</h2>
           {this.props.trendingMovies.slice(0, 5).map(this.carouselListItem)}

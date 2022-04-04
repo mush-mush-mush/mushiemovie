@@ -87,7 +87,7 @@ class Details extends Component {
       return (
         <>
           <Helmet>
-            <title>{this.props.movie.title}</title>
+            <title>{`${this.props.movie.title} - Mushie Movie`}</title>
             <meta name="description" content={this.props.movie.overview} />
 
             <meta property="og:url" content={`https://cranky-hermann-6ed2a6.netlify.app/movie/detail/${this.props.movie.id}`} />

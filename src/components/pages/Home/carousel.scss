@@ -33,6 +33,7 @@
     border-radius: 10px;
     overflow: hidden;
     position: relative;
+    transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 
     // Fix overflow glitch on safari
     transform: translateZ(0);
