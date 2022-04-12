@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar, faPoll } from '@fortawesome/free-solid-svg-icons';
 import { ListItem, ItemIndex, ItemImg, ItemColPrimary, ItemTitle, ItemSmall, ItemColSecondary } from './Lists';
 
 function MovieListItem({ movie, index }) {
@@ -11,11 +13,11 @@ function MovieListItem({ movie, index }) {
         <ItemSmall>{new Date(movie.releaseDate).toDateString()}</ItemSmall>
       </ItemColPrimary>
       <ItemColSecondary>
-        <i className="fas fa-star list-item__icon"></i>
+        <FontAwesomeIcon icon={faStar} />
         <strong className="list-item__strong">{movie.rating}</strong>
       </ItemColSecondary>
       <ItemColSecondary>
-        <i className="fas fa-poll list-item__icon"></i>
+        <FontAwesomeIcon icon={faPoll} />
         <strong className="list-item__strong">{Math.round(movie.popularity)}</strong>
       </ItemColSecondary>
     </ListItem>

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleDown, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import './navbar.scss';
 import SearchBar from './SearchBar';
@@ -48,7 +50,7 @@ function Navbar() {
         <div className={`navbar-nav ${toggleNav && 'active'}`}>
           <div className="nav-item dropdown" role="menu" tabIndex="0">
             <span className="nav-link">
-              Movies<i className="fas fa-angle-down"></i>
+              Movies <FontAwesomeIcon icon={faAngleDown}/>
             </span>
             <div className="dropdown-menu">
               <Link className="dropdown-item" to="/movie/popular" role="menuitem">
@@ -64,7 +66,7 @@ function Navbar() {
           </div>
           <div className="nav-item dropdown" role="menu" tabIndex="0">
             <span className="nav-link">
-              TV Shows<i className="fas fa-angle-down"></i>
+              TV Shows <FontAwesomeIcon icon={faAngleDown}/>
             </span>
             <div className="dropdown-menu">
               <Link className="dropdown-item" to="/tv/popular" role="menuitem">
@@ -77,7 +79,7 @@ function Navbar() {
           </div>
         </div>
         <button className="navbar-search-btn" onClick={toggleSearch}>
-          <i className="fas fa-search"></i>
+          <FontAwesomeIcon icon={faSearch}/>
         </button>
         {toggleSearchBar && <SearchBar show={toggleSearchBar} toggleSearchBar={toggleSearch} />}
       </nav>

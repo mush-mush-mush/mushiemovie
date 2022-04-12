@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import Loading from '../../Loading/Loading';
 import MovieListItem from '../../List/MovieListItem';
 import { List } from '../../List/Lists';
@@ -63,7 +65,7 @@ class TopRatedContent extends Component {
         <div className="main-content">
           {this.renderContent()}
           <Link className="button-more" to={`/${this.state.topRated}/top`}>
-            See More <i className="fas fa-arrow-right"></i>
+            See More <FontAwesomeIcon icon={faArrowRight} />
           </Link>
         </div>
       </section>

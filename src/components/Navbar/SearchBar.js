@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { removeSearchQuery, searchQuery } from '../../actions/searchActions';
 import ModalSearch from '../ModalSearch/ModalSearch';
 
@@ -35,7 +37,7 @@ class SearchBar extends Component {
           Search
         </button>
         <button type="button" className="search-close" onClick={this.props.toggleSearchBar}>
-          <i className="fas fa-times"></i>
+          <FontAwesomeIcon icon={faTimes} />
         </button>
         {this.props.searchResults && this.props.show && <ModalSearch content={this.props.searchResults} />}
       </form>

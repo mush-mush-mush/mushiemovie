@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleLeft, faAngleRight, faStar } from '@fortawesome/free-solid-svg-icons';
 import LazyImage from '../LazyImage/LazyImage';
 
 import './cards.scss';
@@ -32,10 +34,10 @@ export const Cards = ({ children }) => {
   return (
     <div className="cards">
       <button className={`cards-container__button cards-container__button--left ${scrollLeft < 50 && 'hidden'}`} onClick={shiftLeft}>
-        <i className="fas fa-angle-left"></i>
+        <FontAwesomeIcon icon={faAngleLeft} />
       </button>
       <button className={`cards-container__button cards-container__button--right ${scrollLeft >= scrollMax && 'hidden'}`} onClick={shiftRight}>
-        <i className="fas fa-angle-right"></i>
+        <FontAwesomeIcon icon={faAngleRight} />
       </button>
       <div
         className={`cards-container`}
@@ -81,7 +83,7 @@ export const CardFooter = ({ children }) => {
 export const MovieRating = ({ rating }) => {
   return (
     <div className="rating">
-      <i className="fas fa-star"></i>
+      <FontAwesomeIcon icon={faStar} />
       <span>{rating}</span>
     </div>
   );

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { fetchPopularMovies } from '../../../actions/movieActions';
 import { fetchPopularTV } from '../../../actions/tvActions';
 import { Card, CardImage, CardBody, CardTitle, CardFooter, MovieRating, MovieDate, Cards } from '../../Card/Cards';
@@ -71,7 +73,7 @@ class PopularContent extends Component {
         <div className="main-content">
           {this.renderContent()}
           <Link className="button-more" to={`/${this.state.mostPopular}/popular`}>
-            See More <i className="fas fa-arrow-right"></i>
+            See More <FontAwesomeIcon icon={faArrowRight} />
           </Link>
         </div>
       </section>

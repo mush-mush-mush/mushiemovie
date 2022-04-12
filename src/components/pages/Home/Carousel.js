@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar, faCalendar } from '@fortawesome/free-solid-svg-icons';
 import Loading from '../../Loading/Loading';
 
 import './carousel.scss';
@@ -115,11 +117,11 @@ class Carousel extends Component {
         <h2 className="carousel-main__details-title">{item.title}</h2>
         <div className="carousel-main__details-summary">
           <div className="rating">
-            <i className="fas fa-star"></i>
+            <FontAwesomeIcon icon={faStar} />
             <span>{item.vote_average}</span>
           </div>
           <div className="date">
-            <i className="far fa-calendar"></i>
+            <FontAwesomeIcon icon={faCalendar} />
             <span>{new Date(item.release_date).toDateString()}</span>
           </div>
         </div>
