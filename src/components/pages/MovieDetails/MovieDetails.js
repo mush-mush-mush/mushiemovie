@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Helmet from 'react-helmet';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendar, faClock, faLayerGroup, faPlay, faStar  } from '@fortawesome/free-solid-svg-icons';
 
 import Loading from '../../Loading/Loading';
 import { Card, CardImage, CardBody, CardTitle, CardText, Cards, CardFooter, MovieRating, MovieDate } from '../../Card/Cards';
@@ -106,21 +108,21 @@ class Details extends Component {
           <Header title={this.props.movie.title} backdrop={this.props.movie.backdrop} poster={this.props.movie.poster}>
             <HeaderSubTitle>
               <span>
-                <i className="far fa-calendar"></i>
+                <FontAwesomeIcon icon={faCalendar} />
                 {this.props.movie.releaseDate}
               </span>
               <span>
-                <i className="far fa-clock"></i>
+                <FontAwesomeIcon icon={faClock} />
                 {this.props.movie.runtime}m
               </span>
               <span>
-                <i className="fas fa-layer-group"></i>
+                <FontAwesomeIcon icon={faLayerGroup} />
                 {this.props.movie.genres.join(', ')}
               </span>
             </HeaderSubTitle>
             <HeaderActions>
               <div className="rating">
-                <i className="fas fa-star"></i>
+              <FontAwesomeIcon icon={faStar} />
                 <div className="rating-details">
                   <strong className="rating-details__average">{this.props.movie.voteAverage}</strong>
                   <small className="rating-details__count">{this.props.movie.voteCount}</small>
@@ -133,7 +135,7 @@ class Details extends Component {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <i className="fas fa-play"></i>
+                  <FontAwesomeIcon icon={faPlay} />
                   Play Trailer
                 </a>
               ) : (
