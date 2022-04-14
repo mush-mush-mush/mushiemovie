@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendar, faClock, faLayerGroup, faPlay, faStar  } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar, faClock, faLayerGroup, faPlay, faStar, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 import Loading from '../../Loading/Loading';
 import { Card, CardImage, CardBody, CardTitle, CardText, Cards, CardFooter, MovieRating, MovieDate } from '../../Card/Cards';
@@ -122,7 +122,7 @@ class Details extends Component {
             </HeaderSubTitle>
             <HeaderActions>
               <div className="rating">
-              <FontAwesomeIcon icon={faStar} />
+                <FontAwesomeIcon icon={faStar} />
                 <div className="rating-details">
                   <strong className="rating-details__average">{this.props.movie.voteAverage}</strong>
                   <small className="rating-details__count">{this.props.movie.voteCount}</small>
@@ -152,8 +152,8 @@ class Details extends Component {
             <DetailSection>
               <SectionTitle>Top Casts</SectionTitle>
               <Cards>{this.props.movie.casts.slice(0, 10).map(this.renderTopCasts)}</Cards>
-              <Link className="button button-more" to={`/movies/credits/${this.props.movie.id}`}>
-                See All Cast & Crew <i className="fas fa-arrow-right"></i>
+              <Link className="button u-margin-left-auto u-margin-top-2" to={`/movies/credits/${this.props.movie.id}`}>
+                See All Cast & Crew <FontAwesomeIcon icon={faArrowRight} />
               </Link>
             </DetailSection>
             <DetailSection>

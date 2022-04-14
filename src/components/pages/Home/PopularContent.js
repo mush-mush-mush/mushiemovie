@@ -42,8 +42,8 @@ class PopularContent extends Component {
     if (this.props.popularTV && this.props.popularMovies) {
       return (
         <>
-          <div className={`${this.state.mostPopular === 'tv' && 'hidden'}`}>{this.renderCards(this.props.popularMovies.slice(0, 10))}</div>
-          <div className={`${this.state.mostPopular === 'movie' && 'hidden'}`}>{this.renderCards(this.props.popularTV.slice(0, 10))}</div>
+          <div className={`${this.state.mostPopular === 'tv' && 'u-hidden'}`}>{this.renderCards(this.props.popularMovies.slice(0, 10))}</div>
+          <div className={`${this.state.mostPopular === 'movie' && 'u-hidden'}`}>{this.renderCards(this.props.popularTV.slice(0, 10))}</div>
         </>
       );
     } else {
@@ -72,7 +72,7 @@ class PopularContent extends Component {
         </aside>
         <div className="main-content">
           {this.renderContent()}
-          <Link className="button-more" to={`/${this.state.mostPopular}/popular`}>
+          <Link className="button u-margin-left-auto" to={`/${this.state.mostPopular}/popular`}>
             See More <FontAwesomeIcon icon={faArrowRight} />
           </Link>
         </div>

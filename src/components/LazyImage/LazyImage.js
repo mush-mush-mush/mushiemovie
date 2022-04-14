@@ -26,12 +26,12 @@ function LazyImage({ src, alt, thumbSize, imageSize, className }) {
       }
 
       entry.target.addEventListener('load', () => {
-        entry.target.classList.remove('lazy-img--loading');
+        entry.target.classList.remove('u-lazy-img--loading');
       });
 
       entry.target.addEventListener('error', () => {
         entry.target.src = noImage;
-        entry.target.classList.remove('lazy-img--loading');
+        entry.target.classList.remove('u-lazy-img--loading');
       });
     };
 
@@ -43,7 +43,7 @@ function LazyImage({ src, alt, thumbSize, imageSize, className }) {
     imageObserver.observe(imageRef.current);
   }, []);
 
-  return <img className={`${className} lazy-img lazy-img--loading`} src={catSrc(src, thumbSize)} alt={alt} ref={imageRef}></img>;
+  return <img className={`${className} u-lazy-img u-lazy-img--loading`} src={catSrc(src, thumbSize)} alt={alt} ref={imageRef}></img>;
 }
 
 export default LazyImage;

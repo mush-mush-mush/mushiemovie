@@ -126,25 +126,6 @@
               }
             }
           }
-
-          & .button-trailer {
-            padding: 1rem 3rem;
-            border-radius: 30px;
-            border: 2px solid $color-gray;
-            color: $color-gray;
-            cursor: pointer;
-            transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
-
-            &:hover {
-              border: 2px solid $color-primary;
-              background-color: $color-white;
-              color: $color-primary;
-            }
-
-            & svg {
-              margin-right: 1.5rem;
-            }
-          }
         }
       }
     }
@@ -180,28 +161,6 @@
       & strong {
         margin-right: 1rem;
       }
-    }
-  }
-
-  & .button-more {
-    display: flex;
-    gap: 2rem;
-    justify-content: space-between;
-    max-width: fit-content;
-    margin-left: auto;
-    margin-top: 2rem;
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    color: $color-gray;
-    background-color: $color-white;
-    border: 2px solid $color-gray;
-    border-radius: 30px;
-    transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
-    cursor: pointer;
-
-    &:hover {
-      color: $color-primary;
-      border: 2px solid $color-primary;
     }
   }
 

@@ -34,8 +34,8 @@ class TopRatedContent extends Component {
     if (this.props.topRatedTV && this.props.topRatedMovies) {
       return (
         <>
-          <div className={`${this.state.topRated === 'tv' && 'hidden'}`}>{this.renderLists(this.props.topRatedMovies.slice(0, 5))}</div>
-          <div className={`${this.state.topRated === 'movie' && 'hidden'}`}>{this.renderLists(this.props.topRatedTV.slice(0, 5))}</div>
+          <div className={`${this.state.topRated === 'tv' && 'u-hidden'}`}>{this.renderLists(this.props.topRatedMovies.slice(0, 5))}</div>
+          <div className={`${this.state.topRated === 'movie' && 'u-hidden'}`}>{this.renderLists(this.props.topRatedTV.slice(0, 5))}</div>
         </>
       );
     } else {
@@ -64,7 +64,7 @@ class TopRatedContent extends Component {
         </aside>
         <div className="main-content">
           {this.renderContent()}
-          <Link className="button-more" to={`/${this.state.topRated}/top`}>
+          <Link className="button u-margin-left-auto" to={`/${this.state.topRated}/top`}>
             See More <FontAwesomeIcon icon={faArrowRight} />
           </Link>
         </div>
