@@ -15,12 +15,12 @@ class SearchBar extends Component {
     if (this.state.searchQuery) {
       this.props.searchQuery(this.state.searchQuery);
     }
-    document.querySelector('body').style.overflow = 'hidden';
+    // document.querySelector('body').style.overflow = 'hidden';
   };
 
   componentWillUnmount() {
     this.props.removeSearchQuery();
-    document.querySelector('body').style.overflow = 'scroll';
+    // document.querySelector('body').style.overflow = 'scroll';
   }
 
   render() {
