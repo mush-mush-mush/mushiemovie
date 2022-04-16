@@ -56,11 +56,19 @@
       font-size: 1.6rem;
       font-weight: 700;
       color: $color-black;
+      margin-bottom: 0.5rem;
     }
 
-    &__small {
+    &__subtitle {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: $color-gray;
+      margin-bottom: 0.5rem;
+    }
+
+    &__text {
       display: block;
-      margin-top: 0.75rem;
+      margin: 0.75rem 0;
       font-size: 1.2rem;
       font-weight: 400;
       line-height: 1.5rem;
@@ -78,9 +86,7 @@
       margin-right: 0.5rem;
     }
 
-    &__col--primary,
-    &__col--primary:link,
-    &__col--primary:visited {
+    &__col--primary {
       flex-basis: 100%;
     }
 

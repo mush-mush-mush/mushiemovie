@@ -12,13 +12,13 @@
 }
 
 .modal {
-  margin: 3rem auto;
-  height: 85%;
-  width: 90%;
-  max-width: 70rem;
+  margin: 2rem auto;
+  height: calc(100% - 4rem);
+  width: 95%;
+  max-width: 75rem;
   background-color: $color-white;
-  padding: 3rem;
-  padding-right: 2rem;
+  padding: 2rem;
+  padding-right: 1rem;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);

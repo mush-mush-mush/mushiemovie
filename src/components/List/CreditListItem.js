@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListItem, ItemImg, ItemColPrimary, ItemTitle, ItemSmall } from './Lists';
+import { ListItem, ItemImg, ItemColPrimary, ItemTitle, ItemText } from './Lists';
 
 function CreditListItem({ credits }) {
   console.log(credits);
@@ -8,7 +8,7 @@ function CreditListItem({ credits }) {
       <ItemImg src={credits.poster_path} alt={credits.title || credits.name}></ItemImg>
       <ItemColPrimary>
         <ItemTitle>{credits.title || credits.name}</ItemTitle>
-        <ItemSmall>{credits.character || credits.job}</ItemSmall>
+        <ItemText>{credits.character || credits.job}</ItemText>
       </ItemColPrimary>
     </ListItem>
   );

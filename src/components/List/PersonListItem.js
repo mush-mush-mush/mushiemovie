@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListItem, ItemImg, ItemColPrimary, ItemTitle, ItemSmall } from './Lists';
+import { ListItem, ItemImg, ItemColPrimary, ItemTitle, ItemText } from './Lists';
 
 function PersonListItem({ person }) {
   return (
@@ -7,7 +7,7 @@ function PersonListItem({ person }) {
       <ItemImg src={person.profile_path} alt={person.name}></ItemImg>
       <ItemColPrimary>
         <ItemTitle link={`/person/detail/${person.id}`}>{person.name}</ItemTitle>
-        <ItemSmall>{person.character || person.job}</ItemSmall>
+        <ItemText>{person.character || person.job}</ItemText>
       </ItemColPrimary>
     </ListItem>
   );

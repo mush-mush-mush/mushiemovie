@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faPoll } from '@fortawesome/free-solid-svg-icons';
-import { ListItem, ItemIndex, ItemImg, ItemColPrimary, ItemTitle, ItemSmall, ItemColSecondary } from './Lists';
+import { ListItem, ItemIndex, ItemImg, ItemColPrimary, ItemTitle, ItemText, ItemColSecondary } from './Lists';
 
 function MovieListItem({ movie, index }) {
   return (
@@ -10,7 +10,7 @@ function MovieListItem({ movie, index }) {
       <ItemImg src={movie.poster} alt={movie.title}></ItemImg>
       <ItemColPrimary>
         <ItemTitle>{movie.title}</ItemTitle>
-        <ItemSmall>{new Date(movie.releaseDate).toDateString()}</ItemSmall>
+        <ItemText>{new Date(movie.releaseDate).toDateString()}</ItemText>
       </ItemColPrimary>
       <ItemColSecondary>
         <FontAwesomeIcon icon={faStar} />

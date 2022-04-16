@@ -54,30 +54,30 @@ export const Cards = ({ children }) => {
 
 export const Card = ({ children, link }) => {
   return (
-    <Link className={`card`} to={link}>
+    <Link className="card" to={link}>
       {children}
     </Link>
   );
 };
 
 export const CardImage = ({ src, alt }) => {
-  return <LazyImage src={src} alt={alt} imageSize={'w185'} thumbSize={'w92'} className={'card-img'} />;
+  return <LazyImage src={src} alt={alt} imageSize="w185" thumbSize="w92" className="card__img" />;
 };
 
 export const CardBody = ({ children }) => {
-  return <div className="card-body">{children}</div>;
+  return <div className="card__body">{children}</div>;
 };
 
 export const CardTitle = ({ children }) => {
-  return <h3 className="card-title">{children}</h3>;
+  return <h3 className="card__title">{children}</h3>;
 };
 
 export const CardText = ({ children }) => {
-  return <p className="card-text">{children}</p>;
+  return <p className="card__text">{children}</p>;
 };
 
 export const CardFooter = ({ children }) => {
-  return <div className="card-footer">{children}</div>;
+  return <div className="card__footer">{children}</div>;
 };
 
 export const MovieRating = ({ rating }) => {

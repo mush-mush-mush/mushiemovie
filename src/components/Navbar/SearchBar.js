@@ -8,11 +8,13 @@ import ModalSearch from '../ModalSearch/ModalSearch';
 class SearchBar extends Component {
   state = {
     searchQuery: '',
+    openModal: false,
   };
 
   searchContent = (e) => {
     e.preventDefault();
     if (this.state.searchQuery) {
+      this.setState({ openModal: true });
       this.props.searchQuery(this.state.searchQuery);
     }
     // document.querySelector('body').style.overflow = 'hidden';
@@ -39,16 +41,10 @@ class SearchBar extends Component {
         <button type="button" className="search-close" onClick={this.props.toggleSearchBar}>
           <FontAwesomeIcon icon={faTimes} />
         </button>
-        {this.props.searchResults && this.props.show && <ModalSearch content={this.props.searchResults} />}
+        {this.state.openModal && this.props.show && <ModalSearch closeModal={this.props.toggleSearchBar} />}
       </form>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    searchResults: state.search.results,
-  };
-};
-
-export default connect(mapStateToProps, { searchQuery, removeSearchQuery })(SearchBar);
+export default connect(null, { searchQuery, removeSearchQuery })(SearchBar);

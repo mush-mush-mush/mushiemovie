@@ -88,20 +88,16 @@
   &:hover {
     border: 2px solid $color-primary;
 
-    & .card-title {
+    & .card__title {
       color: $color-primary;
     }
 
-    & .card-img {
+    & .card__img {
       opacity: 0.9;
     }
   }
 
-  &.horizontal {
-    flex-direction: row;
-  }
-
-  &-img {
+  &__img {
     width: 16.5rem;
     height: 25rem;
     border-radius: 10px;
@@ -121,24 +117,24 @@
     }
   }
 
-  &-body {
+  &__body {
     text-align: center;
     margin-bottom: auto;
     min-height: 3.8rem;
   }
 
-  &-title {
+  &__title {
     line-height: 1.6rem;
     font-size: 1.4rem;
     margin-bottom: 0.5rem;
     transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 
-  &-text {
+  &__text {
     text-align: center;
   }
 
-  &-footer {
+  &__footer {
     display: flex;
     align-items: center;
     justify-content: space-between;

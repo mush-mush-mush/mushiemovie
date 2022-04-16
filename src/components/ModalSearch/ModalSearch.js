@@ -1,31 +1,61 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { List, ItemImg, ListItem, ItemColPrimary, ItemTitle, ItemSmall } from '../List/Lists';
+import { connect } from 'react-redux';
+import { List, ItemImg, ListItem, ItemColPrimary, ItemTitle, ItemText, ItemSubtitle } from '../List/Lists';
+import Loading from '../Loading/Loading';
 
 import './modalSearch.scss';
 
-function ModalSearch({ content }) {
-  return ReactDOM.createPortal(
-    <div className="react-portal container">
-      <div className="modal">
-        <h1>{content.length} Search Results</h1>
-        <div className="modal-content">
-          <List>
-            {content.map((item, index) => (
-              <ListItem link={`/${item.mediaType}/detail/${item.id}`} key={index}>
-                <ItemImg src={item.image} variant="large"></ItemImg>
-                <ItemColPrimary>
-                  <ItemTitle>{item.title}</ItemTitle>
-                  <ItemSmall>{item.overview}</ItemSmall>
-                </ItemColPrimary>
-              </ListItem>
-            ))}
-          </List>
-        </div>
-      </div>
-    </div>,
-    document.getElementById('modal')
-  );
+class ModalSearch extends Component {
+  renderContent() {
+    if (this.props.searchResults) {
+      return (
+        <>
+          <h1>{this.props.searchResults.length} Search Results</h1>
+          <div className="modal-content">
+            <List>
+              {this.props.searchResults.map((item, index) => (
+                <ListItem link={`/${item.mediaType}/detail/${item.id}`} key={index}>
+                  <ItemImg src={item.image} variant="large"></ItemImg>
+                  <ItemColPrimary>
+                    <ItemTitle>
+                      {item.title}
+                      <span className="badge">{item.mediaType}</span>
+                    </ItemTitle>
+                    <ItemSubtitle>
+                      {item.releaseDate &&
+                        new Date(item.releaseDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                    </ItemSubtitle>
+                    <ItemText>
+                      {item.overview}
+                      {item.knownFor}
+                    </ItemText>
+                  </ItemColPrimary>
+                </ListItem>
+              ))}
+            </List>
+          </div>
+        </>
+      );
+    } else {
+      return <Loading />;
+    }
+  }
+
+  render() {
+    return ReactDOM.createPortal(
+      <div className="react-portal container" onClick={(e) => e.target.classList.contains('react-portal') && this.props.closeModal()}>
+        <div className="modal">{this.renderContent()}</div>
+      </div>,
+      document.getElementById('modal')
+    );
+  }
 }
 
-export default ModalSearch;
+const mapStateToProps = (state) => {
+  return {
+    searchResults: state.search.results,
+  };
+};
+
+export default connect(mapStateToProps, {})(ModalSearch);

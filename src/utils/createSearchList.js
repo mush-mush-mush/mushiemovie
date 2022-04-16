@@ -7,7 +7,8 @@ export default (results) => {
       id: item.id,
       title: item.title || item.name,
       image: item.poster_path || item.profile_path,
-      overview: item.known_for_department || (item.overview.length > 225 ? item.overview.slice(0, 222) + '...' : item.overview),
+      overview: item.known_for_department || (item.overview.length > 100 ? item.overview.slice(0, 100) + '...' : item.overview),
+      releaseDate: item.first_air_date || item.release_date,
     };
   });
 

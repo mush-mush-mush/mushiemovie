@@ -28,6 +28,17 @@ html {
   }
 }
 
+.badge {
+  background-color: $color-gray-light;
+  border-radius: 50px;
+  padding: 0.25rem 1rem;
+  font-weight: 500;
+  font-size: 0.6em;
+  margin: 0 0.5rem;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+
 a,
 a:link,
 a:visited {

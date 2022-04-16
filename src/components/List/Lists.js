@@ -26,4 +26,6 @@ export const ItemColSecondary = ({ children }) => <div className="list-item__col
 
 export const ItemTitle = ({ children }) => <h2 className="list-item__title">{children}</h2>;
 
-export const ItemSmall = ({ children }) => <small className="list-item__small">{children}</small>;
+export const ItemSubtitle = ({ children }) => <h3 className="list-item__subtitle">{children}</h3>;
+
+export const ItemText = ({ children }) => <p className="list-item__text">{children}</p>;
