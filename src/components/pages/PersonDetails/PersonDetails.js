@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Helmet from 'react-helmet';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 import { Card, CardImage, CardBody, CardTitle, CardText, Cards } from '../../Card/Cards';
 import { Detail, DetailMain, DetailSection, Header, SectionList, SectionListItem, SectionParagraph, SectionTitle } from '../../Detail/Detail';
@@ -65,8 +67,8 @@ class PersonDetails extends Component {
             <DetailSection>
               <SectionTitle>Known For</SectionTitle>
               <Cards>{this.props.person.credits.slice(0, 10).map(this.renderCredits)}</Cards>
-              <Link className="button button-more" to={`/persons/credits/${this.props.person.id}`}>
-                See All Cast & Crew <i className="fas fa-arrow-right"></i>
+              <Link className="button u-margin-left-auto u-margin-top-2" to={`/persons/credits/${this.props.person.id}`}>
+                See All Cast & Crew <FontAwesomeIcon icon={faArrowRight} />
               </Link>
             </DetailSection>
           </DetailMain>

@@ -33,10 +33,10 @@ export const Cards = ({ children }) => {
 
   return (
     <div className="cards">
-      <button className={`cards-container__button cards-container__button--left ${scrollLeft < 50 && 'hidden'}`} onClick={shiftLeft}>
+      <button className={`cards-container__button cards-container__button--left ${scrollLeft < 50 && 'u-hidden'}`} onClick={shiftLeft}>
         <FontAwesomeIcon icon={faAngleLeft} />
       </button>
-      <button className={`cards-container__button cards-container__button--right ${scrollLeft >= scrollMax && 'hidden'}`} onClick={shiftRight}>
+      <button className={`cards-container__button cards-container__button--right ${scrollLeft >= scrollMax && 'u-hidden'}`} onClick={shiftRight}>
         <FontAwesomeIcon icon={faAngleRight} />
       </button>
       <div

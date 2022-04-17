@@ -1,4 +1,4 @@
-@import '../../../sass/variables';
+@import '../../sass/variables';
 
 .carousel {
   width: 100%;
@@ -21,9 +21,8 @@
     flex-direction: column;
   }
 
-  & .slider-container {
-    display: flex;
-    width: fit-content;
+  &--loading {
+    background-color: $color-gray-light;
   }
 
   &-inner {
@@ -49,6 +48,7 @@
     height: 100%;
     overflow: hidden;
     transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    background-color: $color-gray-light;
 
     &__img {
       object-fit: cover;

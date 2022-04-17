@@ -17,7 +17,7 @@
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 
-    & i {
+    & svg {
       font-size: 5rem;
       color: $color-primary;
       margin-bottom: 2rem;
@@ -38,25 +38,6 @@
 
       &-text {
         font-size: 1.5rem;
-      }
-    }
-
-    &__button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.5rem 1.5rem;
-      font-size: 1.5rem;
-      color: $color-gray;
-      background-color: $color-white;
-      border: 2px solid $color-gray;
-      border-radius: 30px;
-      transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
-      cursor: pointer;
-
-      &:hover {
-        color: $color-primary;
-        border: 2px solid $color-primary;
       }
     }
   }

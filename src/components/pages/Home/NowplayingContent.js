@@ -4,7 +4,7 @@ import { fetchNowPlaying } from '../../../actions/movieActions';
 import { Card, CardImage, CardBody, CardTitle, CardFooter, MovieRating, MovieDate, Cards } from '../../Card/Cards';
 import Loading from '../../Loading/Loading';
 
-class UpcomingContent extends Component {
+class NowplayingContent extends Component {
   componentDidMount() {
     this.props.fetchNowPlaying();
   }
@@ -48,4 +48,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchNowPlaying })(UpcomingContent);
+export default connect(mapStateToProps, { fetchNowPlaying })(NowplayingContent);

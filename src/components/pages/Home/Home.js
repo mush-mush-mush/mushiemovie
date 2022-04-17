@@ -2,23 +2,23 @@ import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import './home.scss';
 
-import Carousel from './Carousel';
+import TrendingContent from './TrendingContent';
 import PopularContent from './PopularContent';
 import TopRatedContent from './TopRatedContent';
-import UpcomingContent from './UpcomingContent';
+import NowplayingContent from './NowplayingContent';
 
 class Home extends Component {
   render() {
     return (
-      <>
+      <div className="home">
         <Helmet>
           <title>Mushie Movie</title>
         </Helmet>
-        <Carousel />
+        <TrendingContent />
         <PopularContent />
         <TopRatedContent />
-        <UpcomingContent />
-      </>
+        <NowplayingContent />
+      </div>
     );
   }
 }
