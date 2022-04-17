@@ -12,6 +12,8 @@
 }
 
 .modal {
+  display: flex;
+  flex-direction: column;
   margin: 2rem auto;
   height: calc(100% - 4rem);
   width: 95%;
@@ -24,10 +26,9 @@
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
 
   &-content {
-    overflow-x: hidden;
     overflow-y: scroll;
     height: 100%;
-    padding-right: 2rem;
+    padding: 3px 1.5rem 3px 3px;
 
     &::-webkit-scrollbar {
       width: 1rem;

@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faCalendar } from '@fortawesome/free-solid-svg-icons';
@@ -7,94 +7,110 @@ import { faStar, faCalendar } from '@fortawesome/free-solid-svg-icons';
 import './carousel.scss';
 import LazyImage from '../LazyImage/LazyImage';
 
-export const Carousel = ({ title, content }) => {
-  const [activeCarouselItem, setActiveCarouselItem] = useState(0);
-  const [carouselInterval, setCarouselInterval] = useState(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startPos, setStartPos] = useState(0);
-  const [currentTranslate, setCurrentTranslate] = useState(0);
-  const [prevTranslate, setPrevTranslate] = useState(0);
-  const [slideAnimate, setSlideAnimate] = useState(false);
+export class Carousel extends Component {
+  state = {
+    activeCarouselItem: 0,
+    carouselInterval: null,
+    isDragging: false,
+    startPos: 0,
+    currentTranslate: 0,
+    prevTranslate: 0,
+    slideAnimate: false,
+  };
 
-  useEffect(() => {
-    startCarousel();
-  }, []);
+  componentDidMount() {
+    this.startCarousel();
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.state.carouselInterval);
+  }
 
   // INTERVAL SLIDE
 
-  const slideCarousel = () => {
-    if (activeCarouselItem >= 4) {
-      setActiveCarouselItem(0);
+  slideCarousel = () => {
+    if (this.state.activeCarouselItem >= 4) {
+      this.setState({ activeCarouselItem: 0 });
     } else {
-      setActiveCarouselItem(activeCarouselItem + 1);
+      this.setState({ activeCarouselItem: this.state.activeCarouselItem + 1 });
     }
   };
 
-  const startCarousel = () => {
-    const carouselTimer = setInterval(slideCarousel, 5000);
+  startCarousel = () => {
+    const carouselTimer = setInterval(this.slideCarousel, 5000);
 
-    setCarouselInterval(carouselTimer);
+    this.setState({
+      carouselInterval: carouselTimer,
+    });
   };
 
   // MANUAL SLIDE
 
-  const changeSlide = (index) => {
-    setActiveCarouselItem(index);
-    clearInterval(carouselInterval);
-    startCarousel();
+  changeSlide = (index) => {
+    this.setState({
+      activeCarouselItem: index,
+    });
+    clearInterval(this.state.carouselInterval);
+    this.startCarousel();
   };
 
-  const selectItem = (index) => {
+  selectItem = (index) => {
     const items = document.querySelectorAll('.carousel-slide');
     items[index].click();
   };
 
   // TOUCH FUNCTIONS
 
-  const touchStart = () => (event) => {
-    setStartPos(getPositionX(event));
-    setIsDragging(true);
-    setSlideAnimate(true);
-    clearInterval(carouselInterval);
+  touchStart = (index) => (event) => {
+    this.setState({
+      currentIndex: index,
+      startPos: this.getPositionX(event),
+      isDragging: true,
+      slideAnimate: true,
+    });
+    clearInterval(this.state.carouselInterval);
   };
 
-  const touchEnd = (event) => {
-    const movedBy = currentTranslate - prevTranslate;
+  touchEnd = (event) => {
+    const movedBy = this.state.currentTranslate - this.state.prevTranslate;
 
-    if (movedBy < -60 && activeCarouselItem < 4) setActiveCarouselItem(activeCarouselItem + 1);
+    if (movedBy < -60 && this.state.activeCarouselItem < 4)
+      this.setState({ isDragging: false, activeCarouselItem: this.state.activeCarouselItem + 1 });
 
-    if (movedBy > 60 && activeCarouselItem > 0) setActiveCarouselItem(activeCarouselItem - 1);
+    if (movedBy > 60 && this.state.activeCarouselItem > 0)
+      this.setState({ isDragging: false, activeCarouselItem: this.state.activeCarouselItem - 1 });
 
-    setIsDragging(false);
-    setSlideAnimate(false);
-    startCarousel();
+    this.setState({ slideAnimate: false });
+    this.startCarousel();
   };
 
-  const touchMove = (event) => {
-    if (isDragging) {
-      const currentPosition = getPositionX(event);
-      setCurrentTranslate(prevTranslate + currentPosition - startPos);
+  touchMove = (event) => {
+    if (this.state.isDragging) {
+      const currentPosition = this.getPositionX(event);
+      this.setState({
+        currentTranslate: this.state.prevTranslate + currentPosition - this.state.startPos,
+      });
     }
   };
 
-  const getPositionX = (event) => event.touches[0].clientX;
+  getPositionX = (event) => event.touches[0].clientX;
 
   // RENDER
 
-  const CarouselSlider = (item, index) => (
+  CarouselSlider = (item, index) => (
     <Link
       className="carousel-main"
       to={`/movie/detail/${item.id}`}
       key={item.title}
       tabIndex="-1"
-      style={{ transform: `translateX(${(index - activeCarouselItem) * 100}%)` }}
-      onTouchStart={touchStart(index)}
-      onTouchEnd={touchEnd}
-      onTouchMove={touchMove}
+      style={{ transform: `translateX(${(index - this.state.activeCarouselItem) * 100}%)` }}
+      onTouchStart={this.touchStart(index)}
+      onTouchEnd={this.touchEnd}
+      onTouchMove={this.touchMove}
     >
       <LazyImage src={item.backdrop_path} alt={item.title} imageSize="w1280" thumbSize="w200" className="carousel-main__img" />
       <div className="carousel-main__details">
-        <span className="carousel-main__details-category">{title}</span>
+        <span className="carousel-main__details-category">Trending</span>
         <h2 className="carousel-main__details-title">{item.title}</h2>
         <div className="carousel-main__details-summary">
           <div className="rating">
@@ -111,13 +127,13 @@ export const Carousel = ({ title, content }) => {
     </Link>
   );
 
-  const carouselListItem = (item, index) => (
+  carouselListItem = (item, index) => (
     <div
-      className={`carousel-list__item ${index === activeCarouselItem ? 'active' : ''}`}
+      className={`carousel-list__item ${index === this.state.activeCarouselItem ? 'active' : ''}`}
       key={item.title}
-      onClick={() => changeSlide(index)}
-      onFocus={() => changeSlide(index)}
-      onKeyDown={(e) => (e.code === 'Space' || e.code === 'Enter') && selectItem(index)}
+      onClick={() => this.changeSlide(index)}
+      onFocus={() => this.changeSlide(index)}
+      onKeyDown={(e) => (e.code === 'Space' || e.code === 'Enter') && this.selectItem(index)}
       tabIndex="0"
     >
       <img className="carousel-list__item-img" src={`https://image.tmdb.org/t/p/w92${item.poster_path}`} alt={item.title} />
@@ -126,27 +142,29 @@ export const Carousel = ({ title, content }) => {
     </div>
   );
 
-  const carouselIndicators = (item, index) => (
+  carouselIndicators = (item, index) => (
     <button
-      className={`carousel-indicator__button ${index === activeCarouselItem ? 'active' : ''}`}
+      className={`carousel-indicator__button ${index === this.state.activeCarouselItem ? 'active' : ''}`}
       key={item.title}
-      onClick={() => changeSlide(index)}
-      onFocus={() => changeSlide(index)}
-      onKeyDown={(e) => (e.code === 'Space' || e.code === 'Enter') && selectItem(index)}
+      onClick={() => this.changeSlide(index)}
+      onFocus={() => this.changeSlide(index)}
+      onKeyDown={(e) => (e.code === 'Space' || e.code === 'Enter') && this.selectItem(index)}
       tabIndex="0"
     ></button>
   );
 
-  return (
-    <div className="carousel">
-      <div className="carousel-inner" style={{ transform: `scale(${slideAnimate ? 0.95 : 1})` }}>
-        {content.map(CarouselSlider)}
+  render() {
+    return (
+      <div className="carousel">
+        <div className="carousel-inner" style={{ transform: `scale(${this.state.slideAnimate ? 0.95 : 1})` }}>
+          {this.props.content.map(this.CarouselSlider)}
+        </div>
+        <div className="carousel-list">
+          <h2 className="carousel-list__title">Trending Now</h2>
+          {this.props.content.map(this.carouselListItem)}
+        </div>
+        <div className="carousel-indicator">{this.props.content.map(this.carouselIndicators)}</div>
       </div>
-      <div className="carousel-list">
-        <h2 className="carousel-list__title">Trending Now</h2>
-        {content.map(carouselListItem)}
-      </div>
-      <div className="carousel-indicator">{content.map(carouselIndicators)}</div>
-    </div>
-  );
-};
+    );
+  }
+}
