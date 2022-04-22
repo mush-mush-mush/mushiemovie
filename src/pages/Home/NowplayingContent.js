@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchNowPlaying } from '../../../actions/movieActions';
-import { Card, CardImage, CardBody, CardTitle, CardFooter, MovieRating, MovieDate, Cards } from '../../Card/Cards';
-import Loading from '../../Loading/Loading';
+import { fetchNowPlaying } from '../../actions/movieActions';
+import { Card, CardImage, CardBody, CardTitle, CardFooter, MovieRating, MovieDate, Cards } from '../../components/Card/Cards';
+import Loading from '../../components/Loading/Loading';
 
 class NowplayingContent extends Component {
   componentDidMount() {

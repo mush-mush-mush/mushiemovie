@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchMovieCredits } from '../../../actions/movieActions';
-import { fetchTVCredits } from '../../../actions/tvActions';
-import { fetchPersonCredits } from '../../../actions/personActions';
-import PersonListItem from '../../List/PersonListItem';
-import CreditListItem from '../../List/CreditListItem';
-import Loading from '../../Loading/Loading';
+import { fetchMovieCredits } from '../../actions/movieActions';
+import { fetchTVCredits } from '../../actions/tvActions';
+import { fetchPersonCredits } from '../../actions/personActions';
+import PersonListItem from '../../components/List/PersonListItem';
+import CreditListItem from '../../components/List/CreditListItem';
+import Loading from '../../components/Loading/Loading';
 
 import './credits.scss';
 

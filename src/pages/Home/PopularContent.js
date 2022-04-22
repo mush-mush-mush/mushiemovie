@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import { fetchPopularMovies } from '../../../actions/movieActions';
-import { fetchPopularTV } from '../../../actions/tvActions';
-import { Card, CardImage, CardBody, CardTitle, CardFooter, MovieRating, MovieDate, Cards } from '../../Card/Cards';
-import Loading from '../../Loading/Loading';
+import { fetchPopularMovies } from '../../actions/movieActions';
+import { fetchPopularTV } from '../../actions/tvActions';
+import { Card, CardImage, CardBody, CardTitle, CardFooter, MovieRating, MovieDate, Cards } from '../../components/Card/Cards';
+import Loading from '../../components/Loading/Loading';
 
 class PopularContent extends Component {
   state = {

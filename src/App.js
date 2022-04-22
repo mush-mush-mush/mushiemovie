@@ -5,16 +5,16 @@ import './sass/main.scss';
 
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
-import Home from './components/pages/Home/Home';
-import MovieDetails from './components/pages/MovieDetails/MovieDetails';
-import Credits from './components/pages/Credits/Credits';
-import MostPopularMovies from './components/pages/MostPopularMovies/MostPopularMovies';
-import PersonDetails from './components/pages/PersonDetails/PersonDetails';
-import TopRatedMovies from './components/pages/TopRatedMovies/TopRatedMovies';
-import UpcomingMovies from './components/pages/UpcomingMovies/UpcomingMovies';
-import MostPopularTV from './components/pages/MostPopularTV/MostPopularTV';
-import TopRatedTV from './components/pages/TopRatedTV/TopRatedTV';
-import TVDetails from './components/pages/TVDetails/TVDetails';
+import Home from './pages/Home/Home';
+import MovieDetails from './pages/MovieDetails/MovieDetails';
+import Credits from './pages/Credits/Credits';
+import MostPopularMovies from './pages/MostPopularMovies/MostPopularMovies';
+import PersonDetails from './pages/PersonDetails/PersonDetails';
+import TopRatedMovies from './pages/TopRatedMovies/TopRatedMovies';
+import UpcomingMovies from './pages/UpcomingMovies/UpcomingMovies';
+import MostPopularTV from './pages/MostPopularTV/MostPopularTV';
+import TopRatedTV from './pages/TopRatedTV/TopRatedTV';
+import TVDetails from './pages/TVDetails/TVDetails';
 import ErrorBoundary from './components/ErrorBoundary';
 
 class App extends React.Component {

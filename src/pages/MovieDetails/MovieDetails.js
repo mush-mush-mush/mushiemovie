@@ -5,8 +5,8 @@ import Helmet from 'react-helmet';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendar, faClock, faLayerGroup, faPlay, faStar, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
-import Loading from '../../Loading/Loading';
-import { Card, CardImage, CardBody, CardTitle, CardText, Cards, CardFooter, MovieRating, MovieDate } from '../../Card/Cards';
+import Loading from '../../components/Loading/Loading';
+import { Card, CardImage, CardBody, CardTitle, CardText, Cards, CardFooter, MovieRating, MovieDate } from '../../components/Card/Cards';
 import {
   Detail,
   DetailMain,
@@ -18,8 +18,8 @@ import {
   SectionListItem,
   SectionParagraph,
   SectionTitle,
-} from '../../Detail/Detail';
-import { fetchMovie, removeMovie } from '../../../actions/movieActions';
+} from '../../components/Detail/Detail';
+import { fetchMovie, removeMovie } from '../../actions/movieActions';
 
 class Details extends Component {
   componentDidMount() {

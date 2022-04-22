@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import Loading from '../../Loading/Loading';
-import MovieListItem from '../../List/MovieListItem';
-import { List } from '../../List/Lists';
-import { fetchTopRatedMovies } from '../../../actions/movieActions';
-import { fetchTopRatedTV } from '../../../actions/tvActions';
+import Loading from '../../components/Loading/Loading';
+import MovieListItem from '../../components/List/MovieListItem';
+import { List } from '../../components/List/Lists';
+import { fetchTopRatedMovies } from '../../actions/movieActions';
+import { fetchTopRatedTV } from '../../actions/tvActions';
 
 class TopRatedContent extends Component {
   state = {

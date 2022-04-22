@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Loading from '../../Loading/Loading';
+import Loading from '../../components/Loading/Loading';
 
-import { fetchTrendingMovies } from '../../../actions/movieActions';
-import { Carousel } from '../../Carousel/Carousel';
+import { fetchTrendingMovies } from '../../actions/movieActions';
+import { Carousel } from '../../components/Carousel/Carousel';
 
 class TrendingContent extends Component {
   componentDidMount() {

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
-import { List, ListHeader } from '../../List/Lists';
-import MovieListItem from '../../List/MovieListItem';
-import Loading from '../../Loading/Loading';
-import { fetchUpcomingMovies } from '../../../actions/movieActions';
+import { List, ListHeader } from '../../components/List/Lists';
+import MovieListItem from '../../components/List/MovieListItem';
+import Loading from '../../components/Loading/Loading';
+import { fetchUpcomingMovies } from '../../actions/movieActions';
 
 class UpcomingMovies extends Component {
   componentDidMount() {

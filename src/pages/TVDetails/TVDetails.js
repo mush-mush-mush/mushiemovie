@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Helmet from 'react-helmet';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendar, faFilm, faLayerGroup, faPlay, faStar, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
-import Loading from '../../Loading/Loading';
-import { Cards, Card, CardImage, CardBody, CardTitle, CardText, CardFooter, MovieRating, MovieDate } from '../../Card/Cards';
+import Loading from '../../components/Loading/Loading';
+import { Cards, Card, CardImage, CardBody, CardTitle, CardText, CardFooter, MovieRating, MovieDate } from '../../components/Card/Cards';
 import {
   Detail,
   DetailMain,
@@ -16,8 +18,8 @@ import {
   SectionListItem,
   SectionParagraph,
   SectionTitle,
-} from '../../Detail/Detail';
-import { fetchTV, removeTV } from '../../../actions/tvActions';
+} from '../../components/Detail/Detail';
+import { fetchTV, removeTV } from '../../actions/tvActions';
 
 class TVDetails extends Component {
   componentDidMount() {
@@ -80,28 +82,28 @@ class TVDetails extends Component {
           <Header title={this.props.tv.title} backdrop={this.props.tv.backdrop} poster={this.props.tv.poster}>
             <HeaderSubTitle>
               <span>
-                <i className="far fa-calendar"></i>
+                <FontAwesomeIcon icon={faCalendar} />
                 {this.props.tv.releaseDate}
               </span>
               <span>
-                <i className="fas fa-film"></i>
+                <FontAwesomeIcon icon={faFilm} />
                 {this.props.tv.numberOfSeasons * this.props.tv.numberOfEpisodes} eps
               </span>
               <span>
-                <i className="fas fa-layer-group"></i>
+                <FontAwesomeIcon icon={faLayerGroup} />
                 {this.props.tv.genres.join(', ')}
               </span>
             </HeaderSubTitle>
             <HeaderActions>
               <div className="rating">
-                <i className="fas fa-star"></i>
+                <FontAwesomeIcon icon={faStar} />
                 <div className="rating-details">
                   <strong className="rating-details__average">{this.props.tv.voteAverage}</strong>
                   <small className="rating-details__count">{this.props.tv.voteCount}</small>
                 </div>
               </div>
               <a className="button button-trailer" href={`https://www.youtube.com/watch?v=${this.props.tv.trailer}`}>
-                <i className="fas fa-play"></i>
+                <FontAwesomeIcon icon={faPlay} />
                 Play Trailer
               </a>
             </HeaderActions>
@@ -115,8 +117,8 @@ class TVDetails extends Component {
             <DetailSection>
               <SectionTitle>Top Casts</SectionTitle>
               <Cards>{this.props.tv.casts.slice(0, 10).map(this.renderTopCasts)}</Cards>
-              <Link className="button button-more" to={`/tv/credits/${this.props.tv.id}`}>
-                See All Cast & Crew <i className="fas fa-arrow-right"></i>
+              <Link className="button u-margin-left-auto u-margin-top-2" to={`/tv/credits/${this.props.tv.id}`}>
+                See All Cast & Crew <FontAwesomeIcon icon={faArrowRight} />
               </Link>
             </DetailSection>
             <DetailSection>

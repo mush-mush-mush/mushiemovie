@@ -5,10 +5,19 @@ import Helmet from 'react-helmet';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
-import { Card, CardImage, CardBody, CardTitle, CardText, Cards } from '../../Card/Cards';
-import { Detail, DetailMain, DetailSection, Header, SectionList, SectionListItem, SectionParagraph, SectionTitle } from '../../Detail/Detail';
-import Loading from '../../Loading/Loading';
-import { fetchPerson, removePerson } from '../../../actions/personActions';
+import { Card, CardImage, CardBody, CardTitle, CardText, Cards } from '../../components/Card/Cards';
+import {
+  Detail,
+  DetailMain,
+  DetailSection,
+  Header,
+  SectionList,
+  SectionListItem,
+  SectionParagraph,
+  SectionTitle,
+} from '../../components/Detail/Detail';
+import Loading from '../../components/Loading/Loading';
+import { fetchPerson, removePerson } from '../../actions/personActions';
 
 class PersonDetails extends Component {
   componentDidMount() {
