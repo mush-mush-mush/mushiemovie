@@ -54,17 +54,17 @@ class TopRatedContent extends Component {
         <aside className="side-content">
           <h2 className="home-section--title">Top Rated</h2>
           <nav className="content-nav">
-            <button className={`nav-item ${this.state.topRated === 'movie' && 'active'}`} onClick={() => this.togglePopularContent('movie')}>
+            <button className={`button-pill ${this.state.topRated === 'movie' && 'active'}`} onClick={() => this.togglePopularContent('movie')}>
               Movies
             </button>
-            <button className={`nav-item ${this.state.topRated === 'tv' && 'active'}`} onClick={() => this.togglePopularContent('tv')}>
+            <button className={`button-pill ${this.state.topRated === 'tv' && 'active'}`} onClick={() => this.togglePopularContent('tv')}>
               TV Shows
             </button>
           </nav>
         </aside>
         <div className="main-content">
           {this.renderContent()}
-          <Link className="button u-margin-left-auto" to={`/${this.state.topRated}/top`}>
+          <Link className="button u-margin-left-auto" to={`/${this.state.topRated}/top`} aria-label={`see more popular ${this.state.topRated}`}>
             See More <FontAwesomeIcon icon={faArrowRight} />
           </Link>
         </div>

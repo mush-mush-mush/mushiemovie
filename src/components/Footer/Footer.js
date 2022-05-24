@@ -17,10 +17,10 @@ export default class Footer extends Component {
         </div>
         <div className="footer-nav"></div>
         <div className="footer-social">
-          <a className="social-link" href="https://www.linkedin.com/in/marcello-sebastian-542b2b1b0/">
+          <a className="social-link" href="https://www.linkedin.com/in/marcello-sebastian-542b2b1b0/" aria-label="linkedin">
             <FontAwesomeIcon icon={faLinkedin} />
           </a>
-          <a className="social-link" href="https://github.com/mush-mush-mush">
+          <a className="social-link" href="https://github.com/mush-mush-mush" aria-label="github">
             <FontAwesomeIcon icon={faGithubSquare} />
           </a>
         </div>

@@ -11,11 +11,11 @@ class TrendingContent extends Component {
   }
 
   render() {
-    if (this.props.trendingMovies) {
-      return <Carousel title="Trending Movies" content={this.props.trendingMovies.slice(0, 5)} />;
-    } else {
-      return <Loading />;
-    }
+    return (
+      <div className="trending-movies">
+        {this.props.trendingMovies ? <Carousel title="Trending Movies" content={this.props.trendingMovies.slice(0, 5)} /> : <Loading />}
+      </div>
+    );
   }
 }
 

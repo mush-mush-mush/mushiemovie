@@ -5,11 +5,11 @@ $breakpoint-lg: 992px;
 $breakpoint-xl: 1200px;
 $breakpoint-xxl: 1400px;
 
-$color-primary: #b243f7;
+$color-primary: #ad36f7;
 $color-secondary: #7b3ce3;
 $color-tertiary: #4447e2;
 $color-black: #000000;
-$color-gray: #7a7a7a;
+$color-gray: #595959;
 $color-gray-light: #f2f2f2;
 $color-white: #ffffff;
 
@@ -28,4 +28,4 @@ $color-gradient: linear-gradient(
 );
 
 $directions: (top, right, bottom, left, all);
-$spaces: (1, 2, 3, 4, auto);
+$spaces: (0.5, 2, 3, 4, auto);

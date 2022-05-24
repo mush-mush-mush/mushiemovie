@@ -62,17 +62,21 @@ class PopularContent extends Component {
         <aside className="side-content">
           <h2 className="home-section--title">Most Popular</h2>
           <nav className="content-nav">
-            <button className={`nav-item ${this.state.mostPopular === 'movie' && 'active'}`} onClick={() => this.togglePopularContent('movie')}>
+            <button className={`button-pill ${this.state.mostPopular === 'movie' && 'active'}`} onClick={() => this.togglePopularContent('movie')}>
               Movies
             </button>
-            <button className={`nav-item ${this.state.mostPopular === 'tv' && 'active'}`} onClick={() => this.togglePopularContent('tv')}>
+            <button className={`button-pill ${this.state.mostPopular === 'tv' && 'active'}`} onClick={() => this.togglePopularContent('tv')}>
               TV Shows
             </button>
           </nav>
         </aside>
         <div className="main-content">
           {this.renderContent()}
-          <Link className="button u-margin-left-auto" to={`/${this.state.mostPopular}/popular`}>
+          <Link
+            className="button u-margin-left-auto"
+            to={`/${this.state.mostPopular}/popular`}
+            aria-label={`see more popular ${this.state.mostPopular}`}
+          >
             See More <FontAwesomeIcon icon={faArrowRight} />
           </Link>
         </div>

@@ -33,10 +33,18 @@ export const Cards = ({ children }) => {
 
   return (
     <div className="cards">
-      <button className={`cards-container__button cards-container__button--left ${scrollLeft < 50 && 'u-hidden'}`} onClick={shiftLeft}>
+      <button
+        className={`cards-container__button cards-container__button--left ${scrollLeft < 50 && 'u-hidden'}`}
+        onClick={shiftLeft}
+        aria-label="scroll left"
+      >
         <FontAwesomeIcon icon={faAngleLeft} />
       </button>
-      <button className={`cards-container__button cards-container__button--right ${scrollLeft >= scrollMax && 'u-hidden'}`} onClick={shiftRight}>
+      <button
+        className={`cards-container__button cards-container__button--right ${scrollLeft >= scrollMax && 'u-hidden'}`}
+        onClick={shiftRight}
+        aria-label="scroll right"
+      >
         <FontAwesomeIcon icon={faAngleRight} />
       </button>
       <div
@@ -84,7 +92,7 @@ export const MovieRating = ({ rating }) => {
   return (
     <div className="rating">
       <FontAwesomeIcon icon={faStar} />
-      <span>{rating}</span>
+      <strong>{rating}</strong>
     </div>
   );
 };

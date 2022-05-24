@@ -9,9 +9,17 @@ import './modalSearch.scss';
 class ModalSearch extends Component {
   renderContent() {
     if (this.props.searchResults) {
+      if (this.props.searchResults.length === 0) {
+        return (
+          <>
+            <h1 className="u-text-center">No Results Found.</h1>
+          </>
+        );
+      }
+
       return (
         <>
-          <h1>{this.props.searchResults.length} Search Results</h1>
+          <h1 className="u-margin-bottom-2">{this.props.searchResults.length} Search Results</h1>
           <div className="modal-content">
             <List>
               {this.props.searchResults.map((item, index) => (

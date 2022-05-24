@@ -50,7 +50,7 @@ function Navbar() {
         <div className={`navbar-nav ${toggleNav && 'active'}`}>
           <div className="nav-item dropdown" role="menu" tabIndex="0">
             <span className="nav-link">
-              Movies <FontAwesomeIcon icon={faAngleDown}/>
+              Movies <FontAwesomeIcon icon={faAngleDown} />
             </span>
             <div className="dropdown-menu">
               <Link className="dropdown-item" to="/movie/popular" role="menuitem">
@@ -66,7 +66,7 @@ function Navbar() {
           </div>
           <div className="nav-item dropdown" role="menu" tabIndex="0">
             <span className="nav-link">
-              TV Shows <FontAwesomeIcon icon={faAngleDown}/>
+              TV Shows <FontAwesomeIcon icon={faAngleDown} />
             </span>
             <div className="dropdown-menu">
               <Link className="dropdown-item" to="/tv/popular" role="menuitem">
@@ -78,8 +78,8 @@ function Navbar() {
             </div>
           </div>
         </div>
-        <button className="navbar-search-btn" onClick={toggleSearch}>
-          <FontAwesomeIcon icon={faSearch}/>
+        <button className="navbar-search-btn" onClick={toggleSearch} aria-label="open search bar">
+          <FontAwesomeIcon icon={faSearch} />
         </button>
         {toggleSearchBar && <SearchBar show={toggleSearchBar} toggleSearchBar={toggleSearch} />}
       </nav>

@@ -8,7 +8,13 @@ html {
   }
 }
 
-.button {
+a,
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+%button-base {
   font-family: 'Poppins', sans-serif;
   display: flex;
   gap: 2rem;
@@ -17,7 +23,6 @@ html {
   font-size: 1.5rem;
   color: $color-gray;
   background-color: $color-white;
-  border: 2px solid $color-gray;
   border-radius: 30px;
   transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
   cursor: pointer;
@@ -25,6 +30,25 @@ html {
   &:hover {
     color: $color-primary;
     border: 2px solid $color-primary;
+  }
+}
+
+.button {
+  @extend %button-base;
+  border: 2px solid $color-gray;
+
+  &-pill {
+    @extend %button-base;
+    border: 2px solid $color-white;
+
+    &.active {
+      color: $color-white;
+      background: $color-gradient;
+
+      &:hover {
+        border: 2px solid $color-white;
+      }
+    }
   }
 }
 
@@ -37,12 +61,6 @@ html {
   margin: 0 0.5rem;
   vertical-align: middle;
   text-transform: uppercase;
-}
-
-a,
-a:link,
-a:visited {
-  text-decoration: none;
 }
 
 .section h1 {

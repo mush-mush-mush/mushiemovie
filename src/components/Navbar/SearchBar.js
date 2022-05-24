@@ -29,6 +29,7 @@ class SearchBar extends Component {
     return (
       <form className={`search-form ${this.props.show && 'active'}`} onSubmit={(e) => this.searchContent(e)}>
         <input
+          aria-label="search input"
           className="search-bar"
           placeholder="Search for a movie title or person"
           onChange={(e) => this.setState({ searchQuery: e.target.value })}
@@ -38,7 +39,7 @@ class SearchBar extends Component {
         <button type="submit" className="search-submit">
           Search
         </button>
-        <button type="button" className="search-close" onClick={this.props.toggleSearchBar}>
+        <button type="button" className="search-close" onClick={this.props.toggleSearchBar} aria-label="close search bar">
           <FontAwesomeIcon icon={faTimes} />
         </button>
         {this.state.openModal && this.props.show && <ModalSearch closeModal={this.props.toggleSearchBar} />}

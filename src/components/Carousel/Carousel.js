@@ -108,7 +108,7 @@ export class Carousel extends Component {
       onTouchEnd={this.touchEnd}
       onTouchMove={this.touchMove}
     >
-      <LazyImage src={item.backdrop_path} alt={item.title} imageSize="w1280" thumbSize="w200" className="carousel-main__img" />
+      <LazyImage src={item.backdrop_path} alt={item.title} imageSize="w780" thumbSize="w200" className="carousel-main__img" />
       <div className="carousel-main__details">
         <span className="carousel-main__details-category">Trending</span>
         <h2 className="carousel-main__details-title">{item.title}</h2>

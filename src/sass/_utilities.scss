@@ -18,3 +18,7 @@
 .u-margin {
   @include spacingMixins(margin);
 }
+
+.u-text-center {
+  text-align: center;
+}
